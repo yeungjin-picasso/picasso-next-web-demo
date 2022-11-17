@@ -10,10 +10,10 @@ const Nav = styled.div`
 `;
 
 export default function NavBar() {
-  const [isLogin, setIsLogin] = useState(false);
-  const elements = ["SHOWCASE", "COMMUNITIES", "QNA", "LOGIN", "REGISTER"];
+  const [isLogin, setIsLogin] = useState(true);
+  const elements = ["SHOWCASE", "QNA", "COMMUNITIES", "LOGIN", "REGISTER"];
   return (
-    <Nav className={isLogin ? "w-2/5" : "w-1/2"}>
+    <Nav>
       {!isLogin &&
         elements.map((name, index) => {
           return <NavLink key={index} name={name} />;
@@ -23,7 +23,7 @@ export default function NavBar() {
           {elements.slice(0, 3).map((name, index) => {
             return <NavLink key={index} name={name} />;
           })}
-          <Icon name="user" width={40} height={40} />
+          <Icon className="ml-[2.5vw]" name="user" width={30} height={30} />
         </>
       )}
     </Nav>

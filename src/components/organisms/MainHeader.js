@@ -6,6 +6,7 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 10vh;
 `;
 
 export default function MainHeader() {
