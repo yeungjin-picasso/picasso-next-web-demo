@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import TitleLogo from "@atoms/TitleLogo";
-import NavBar from "@molecules/NavBar";
+import TitleLogo from "@atoms/home/TitleLogo";
+import HeaderNav from "@molecules/HeaderNav";
 
 const Header = styled.div`
   display: flex;
@@ -9,11 +9,11 @@ const Header = styled.div`
   height: 10vh;
 `;
 
-export default function MainHeader() {
+export default function HomeHeader() {
   return (
     <Header>
       <TitleLogo />
-      <NavBar />
+      <HeaderNav />
     </Header>
   );
 }

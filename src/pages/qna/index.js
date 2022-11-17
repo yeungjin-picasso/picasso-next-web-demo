@@ -1,4 +1,4 @@
-import Seo from "@commons/Seo";
+import Seo from "../../components/Seo";
 
 export default function QnA() {
   return (

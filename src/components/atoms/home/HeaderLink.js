@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-const LinkName = styled.a`
+const Element = styled.a`
   font-family: "Open Sans", sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
@@ -12,12 +12,12 @@ const LinkName = styled.a`
   }
 `;
 
-export default function NavLink({ name }) {
+export default function HomeLink({ name }) {
   const url = "/" + name.toLowerCase();
 
   return (
     <Link href={url} passHref legacyBehavior>
-      <LinkName>{name}</LinkName>
+      <Element>{name}</Element>
     </Link>
   );
 }

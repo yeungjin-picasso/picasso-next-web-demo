@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import MainHeader from "@organisms/MainHeader";
+import HomeHeader from "@organisms/HomeHeader";
 import Image from "next/image";
-import TryButton from "@atoms/TryButton";
+import TryButton from "@atoms/home/TryButton";
 
-const MainLayout = styled.div`
+const Layout = styled.div`
   padding: 4vh 5vw;
   width: 100vw;
   height: 100vh;
@@ -12,20 +12,20 @@ const MainLayout = styled.div`
   justify-content: space-between;
 `;
 
-const MainBody = styled.div`
+const HomeBody = styled.div`
   position: relative;
   height: 76vh;
   width: 100%;
 `;
 
-export default function MainTemplate() {
+export default function HomeTemplate() {
   return (
-    <MainLayout>
-      <MainHeader />
-      <MainBody>
+    <Layout>
+      <HomeHeader />
+      <HomeBody>
         <Image src="/assets/images/main.png" alt="" fill />
         <TryButton />
-      </MainBody>
-    </MainLayout>
+      </HomeBody>
+    </Layout>
   );
 }
