@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import Icon from "@atoms/Icon";
 import { useState } from "react";
+import SidebarLinkText from "@atoms/sidebar/SidebarLinkText";
 
 const Box = styled.div`
   display: flex;
@@ -28,18 +29,6 @@ const IconBox = styled.div`
   padding: 1rem 0;
 `;
 
-const Text = styled.a`
-  font-family: "Over the Rainbow", cursive;
-  color: ${({ isClicked, theme: { colors } }) =>
-    isClicked ? colors.lumber : colors.squirrel};
-  font-size: 1.2rem;
-  font-weight: bold;
-  white-space: nowrap;
-  overflow: hidden;
-  position: absolute;
-  left: calc(24px + 2rem);
-`;
-
 export default function SidebarLink({ content, url = "", iconName, isHover }) {
   const pathname = useRouter().pathname;
   const [elementHover, setElementHover] = useState(false);
@@ -59,15 +48,11 @@ export default function SidebarLink({ content, url = "", iconName, isHover }) {
             height={20}
           />
         </IconBox>
-        <Text
-          style={{
-            width: isHover ? "12rem" : 0,
-            transition: " width 0.7s ease-in-out",
-          }}
+        <SidebarLinkText
           isClicked={isClicked}
-        >
-          {content}
-        </Text>
+          content={content}
+          isHover={isHover}
+        />
       </Box>
     </Link>
   );
