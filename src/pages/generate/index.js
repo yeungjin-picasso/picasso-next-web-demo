@@ -1,9 +1,10 @@
-import Seo from "../../components/Seo";
+import PageLayout from "src/components/PageLayout";
+import Seo from "src/components/Seo";
 
 export default function Generate() {
   return (
-    <>
-      <Seo description="Generate" />
-    </>
+    <PageLayout title="Generate">
+      <Seo title="Generate" />
+    </PageLayout>
   );
 }

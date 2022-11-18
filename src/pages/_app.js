@@ -1,9 +1,9 @@
-import "../styles/Globals.css";
+import "src/styles/Globals.css";
 import { ThemeProvider } from "styled-components";
-import GlobalStyle from "../styles/globalStyle";
-import { theme } from "../styles/theme";
+import GlobalStyle from "src/styles/globalStyle";
+import { theme } from "src/styles/theme";
 import { useRouter } from "next/router";
-import Seo from "../components/Seo";
+import Seo from "src/components/Seo";
 import Sidebar from "@templates/Sidebar";
 
 export default function App({ Component, pageProps, canonical }) {
