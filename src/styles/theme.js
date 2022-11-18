@@ -1,6 +1,6 @@
 export const theme = {
   colors: {
-    lagunaBeach: "#E9D5C1",
+    lumber: "#FFE4CA",
     sunsetOrange: "#FF4848",
     dimGray: "#646464",
     novel: "#9C9A9A",
@@ -8,5 +8,8 @@ export const theme = {
     cultured: "#F4F4F4",
     tutu: "#FFE6E6",
     veryLightGrey: "#CECDCD",
+    falcon: "#615758",
+    emperor: "#55494A",
+    squirrel: "#A4978B",
   },
 };

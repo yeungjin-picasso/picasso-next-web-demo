@@ -11,7 +11,7 @@ const Nav = styled.div`
 
 export default function HeaderNav() {
   const [isLogin, setIsLogin] = useState(true);
-  const elements = ["SHOWCASE", "QNA", "COMMUNITIES", "LOGIN", "REGISTER"];
+  const elements = ["SHOWCASE", "QNA", "COMMUNITY", "LOGIN", "REGISTER"];
   return (
     <Nav>
       {!isLogin &&

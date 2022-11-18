@@ -2,7 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const Element = styled.a`
-  color: ${(props) => props.theme.colors.lagunaBeach};
+  color: ${(props) => props.theme.colors.lumber};
   background-color: ${(props) => props.theme.colors.darkLiver};
   border-radius: 2rem;
   position: absolute;

@@ -4,6 +4,7 @@ import GlobalStyle from "../styles/globalStyle";
 import { theme } from "../styles/theme";
 import { useRouter } from "next/router";
 import Seo from "../components/Seo";
+import Sidebar from "@templates/Sidebar";
 
 export default function App({ Component, pageProps, canonical }) {
   const router = useRouter();
@@ -13,6 +14,7 @@ export default function App({ Component, pageProps, canonical }) {
       <>
         <GlobalStyle />
         <ThemeProvider theme={theme}>
+          <Sidebar />
           <Seo canonical={canonical} />
           <Component {...pageProps} />
         </ThemeProvider>
