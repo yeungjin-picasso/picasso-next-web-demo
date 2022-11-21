@@ -1,4 +1,6 @@
 # 커밋 메시지 (Commit Message)
+<br>
+
 ## 1. Commit Message Structure
 커밋 메시지는 아래와 같이 제목/본문/꼬리말의 구조로 작성
 <div style="border: 2px solid grey; padding: 20px">
@@ -6,7 +8,7 @@
   body (본문)<br><br>
   footer (꼬리말)
 </div>
-<br><br>
+<br>
 
 ## 2. Commit Type
 <div style="border: 2px solid grey; padding: 20px">
@@ -21,7 +23,7 @@
   test : 테스트 코드 수정에 대한 커밋<br>
   design: 디자인 관련 수정에 대한 커밋<br>
 </div>
-<br><br>
+<br>
 
 ## 3. The Subject
 <div style="border: 2px solid grey; padding: 20px">
@@ -30,20 +32,20 @@
   이렇게 작성하는 이유는 Git이 사용하는 메시지 형식을 맞춰 일관된 로깅을 위해.
   (Merge나 Update 등을 보면 알 수 있다.)
 </div>
-<br><br>
+<br>
 
 ## 4. The Body
 <div style="border: 2px solid grey; padding: 20px">
   72자 이하, 설명이 필요한 경우에만 작성한다. 코드 변경의 이유를 명확히 작성할수록 좋다.<br>
   어떻게 보다는 무엇을, 왜 하는지 설명한다.
 </div>
-<br><br>
+<br>
 
 ## 5. The Footer
 <div style="border: 2px solid grey; padding: 20px">
   선택사항이며, issue tracker ID를 참조하는 데 사용한다. 남겨주는 게 좋다.<br>
 </div>
-<br><br>
+<br>
 
 ## 6. Example
 <div style="border: 2px solid grey; padding: 20px">
