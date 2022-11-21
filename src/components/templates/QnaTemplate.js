@@ -1,5 +1,11 @@
+import AskForm from "@molecules/AskForm";
 import QnaList from "@organisms/QnaList";
 
 export default function QnaTemplate() {
-  return <QnaList />;
+  return (
+    <>
+      <AskForm />
+      <QnaList />
+    </>
+  );
 }
