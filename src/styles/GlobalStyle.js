@@ -24,6 +24,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 100%;
     vertical-align: baseline;
     font-family: 'Quicksand', sans-serif;
+    /* font-family: 'DM Serif Display', serif; */
     /* font-family: "Open Sans", sans-serif; */
     /* font-family: 'Over the Rainbow', cursive; */
   }
@@ -67,6 +68,7 @@ const GlobalStyles = createGlobalStyle`
   }
   * {
     box-sizing: border-box;
+    user-select: none;
   }
 `;
 
