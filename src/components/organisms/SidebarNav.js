@@ -12,16 +12,8 @@ export default function SidebarNav({ isHover }) {
 
   return (
     <div>
-      {props.map((item, index) => {
-        return (
-          <SidebarLink
-            key={index}
-            content={item.content}
-            url={item.url}
-            iconName={item.iconName}
-            isHover={isHover}
-          />
-        );
+      {props.map((item) => {
+        return <SidebarLink key={item.content} {...item} isHover={isHover} />;
       })}
     </div>
   );

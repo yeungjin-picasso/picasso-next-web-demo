@@ -15,13 +15,13 @@ export default function HeaderNav() {
   return (
     <Nav>
       {!isLogin &&
-        elements.map((name, index) => {
-          return <HeaderLink key={index} name={name} />;
+        elements.map((name) => {
+          return <HeaderLink key={name} name={name} />;
         })}
       {isLogin && (
         <>
-          {elements.slice(0, 3).map((name, index) => {
-            return <HeaderLink key={index} name={name} />;
+          {elements.slice(0, 3).map((name) => {
+            return <HeaderLink key={name} name={name} />;
           })}
           <Icon className="ml-[2.5vw]" name="user" width={30} height={30} />
         </>
