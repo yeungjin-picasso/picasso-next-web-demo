@@ -23,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
     border: 0;
     font-size: 100%;
     vertical-align: baseline;
-    font-family: serif;
+    font-family: 'Quicksand', sans-serif;
     /* font-family: "Open Sans", sans-serif; */
     /* font-family: 'Over the Rainbow', cursive; */
   }

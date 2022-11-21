@@ -6,6 +6,7 @@ export const theme = {
     novel: "#9C9A9A",
     darkLiver: "#4A4041",
     cultured: "#F4F4F4",
+    gainsboro: "#E1E1E1",
     tutu: "#FFE6E6",
     veryLightGrey: "#CECDCD",
     falcon: "#615758",
