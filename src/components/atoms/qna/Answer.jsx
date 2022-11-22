@@ -1,4 +1,4 @@
-import Icon from "@atoms/Icon";
+import Icon from "@atoms/common/Icon";
 import styled from "styled-components";
 
 const AnswerBox = styled.div`

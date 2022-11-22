@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Icon from "./Icon";
+import Icon from "../common/Icon";
 
 const IconBox = styled.div`
   padding: 1rem;
@@ -8,7 +8,7 @@ const IconBox = styled.div`
   margin-bottom: 1.4rem;
 `;
 
-export default function PageMoveBtn({ name, onClick, disabled }) {
+export default function NextPrevBtn({ name, onClick, disabled }) {
   return (
     <IconBox onClick={onClick}>
       <Icon

@@ -18,7 +18,7 @@ const TextArea = styled.textarea`
   }
 `;
 
-function AskTextArea({ desc = "", setQuesInfo }) {
+function QuesTextArea({ desc = "", setQuesInfo }) {
   const handleChange = (e) => {
     setQuesInfo((prev) => ({ ...prev, description: e.target.value }));
   };
@@ -31,4 +31,4 @@ function AskTextArea({ desc = "", setQuesInfo }) {
   );
 }
 
-export default memo(AskTextArea);
+export default memo(QuesTextArea);

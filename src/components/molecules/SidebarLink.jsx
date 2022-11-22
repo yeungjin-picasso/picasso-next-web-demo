@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import Icon from "@atoms/Icon";
+import Icon from "@atoms/common/Icon";
 import { useState } from "react";
 import SidebarLinkText from "@atoms/sidebar/SidebarLinkText";
 

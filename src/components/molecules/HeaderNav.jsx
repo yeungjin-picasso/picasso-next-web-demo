@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import HeaderLink from "@atoms/home/HeaderLink";
 import { useState } from "react";
-import Icon from "@atoms/Icon";
+import Icon from "@atoms/common/Icon";
 
 const Nav = styled.div`
   display: flex;

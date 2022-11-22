@@ -1,4 +1,4 @@
-import PageTitle from "@atoms/PageTitle";
+import PageTitle from "@atoms/common/PageTitle";
 import styled from "styled-components";
 
 const Wrapper = styled.div`

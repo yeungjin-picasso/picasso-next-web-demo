@@ -1,4 +1,4 @@
-import AskForm from "@molecules/AskForm";
+import AskForm from "@molecules/QuesForm";
 import Pagination from "@organisms/Pagination";
 import QnaList from "@organisms/QnaList";
 import { useMemo, useState } from "react";

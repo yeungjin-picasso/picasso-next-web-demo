@@ -1,6 +1,6 @@
-import ListFormBtn from "@atoms/ListFormBtn";
-import AskInput from "@atoms/qna/AskInput";
-import AskTextArea from "@atoms/qna/AskTextArea";
+import ListFormBtn from "@atoms/list/ListFormBtn";
+import QuesInput from "@atoms/qna/QuesInput";
+import QuesTextArea from "@atoms/qna/QuesTextArea";
 import PvtChkBox from "@atoms/qna/PvtChkBox";
 import { useState } from "react";
 import styled from "styled-components";
@@ -42,11 +42,11 @@ export default function EditForm({ question, desc, isPrivate }) {
     <Form onSubmit={handleSubmit}>
       <InputBox>
         <PvtChkBox isPrivate={quesInfo.isPrivate} setQuesInfo={setQuesInfo} />
-        <AskInput question={quesInfo.question} setQuesInfo={setQuesInfo} />
+        <QuesInput question={quesInfo.question} setQuesInfo={setQuesInfo} />
         <ListFormBtn name="Ask" />
       </InputBox>
       {quesInfo.question.length > 0 && (
-        <AskTextArea desc={quesInfo.description} setQuesInfo={setQuesInfo} />
+        <QuesTextArea desc={quesInfo.description} setQuesInfo={setQuesInfo} />
       )}
     </Form>
   );

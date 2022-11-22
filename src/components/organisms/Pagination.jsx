@@ -1,5 +1,5 @@
-import PageMoveBtn from "@atoms/PageMoveBtn";
-import PageNum from "@atoms/PageNum";
+import NextPrevBtn from "@atoms/pagination/NextPrevBtn";
+import PageNum from "@atoms/pagination/PageNum";
 import { useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 
@@ -55,7 +55,7 @@ export default function Pagination({
 
   return (
     <PageBox>
-      <PageMoveBtn
+      <NextPrevBtn
         name="prev"
         onClick={() => {
           if (groupIndex !== 0) {
@@ -69,7 +69,7 @@ export default function Pagination({
         pageArr[groupIndex].map((num) => (
           <PageNum number={num} key={num} onClick={() => setPageIndex(num)} />
         ))}
-      <PageMoveBtn
+      <NextPrevBtn
         name="next"
         onClick={() => {
           if (groupIndex !== pageArr.length - 1) {

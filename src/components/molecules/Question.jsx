@@ -1,7 +1,7 @@
-import ListElBox from "@atoms/ListElBox";
-import ListId from "@atoms/ListId";
-import ListTitle from "@atoms/ListTitle";
-import ListWriteInfo from "@atoms/ListWriteInfo";
+import ListElemBox from "@atoms/list/ListElemBox";
+import ListId from "@atoms/list/ListId";
+import ListTitle from "@atoms/list/ListTitle";
+import ListWriteInfo from "@atoms/list/ListWriteInfo";
 import QuesIconBox from "@molecules/QuesIconBox";
 import QuesDetail from "@molecules/QuesDetail";
 import EditForm from "@molecules/EditForm";
@@ -25,7 +25,7 @@ export default function Question({
   };
   if (!isEditMode) {
     return (
-      <ListElBox onClick={handleShow}>
+      <ListElemBox onClick={handleShow}>
         <ListId id={id} />
         <div className="grow mt-2 pb-7">
           <ListWriteInfo writer={writer} createdAt={createdAt} />
@@ -37,7 +37,7 @@ export default function Question({
           isAnswered={answer.length > 0}
           setIsEditMode={setIsEditMode}
         />
-      </ListElBox>
+      </ListElemBox>
     );
   }
 

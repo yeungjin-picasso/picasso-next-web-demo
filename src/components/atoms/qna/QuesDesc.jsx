@@ -9,6 +9,6 @@ const Desc = styled.div`
   line-height: 1.7rem;
 `;
 
-export default function Description({ desc }) {
+export default function QuesDesc({ desc }) {
   return <Desc>{desc}</Desc>;
 }

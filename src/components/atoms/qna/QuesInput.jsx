@@ -15,7 +15,7 @@ const Input = styled.input`
   }
 `;
 
-function AskInput({ question = "", setQuesInfo }) {
+function QuesInput({ question = "", setQuesInfo }) {
   const handleChange = (e) => {
     setQuesInfo((prev) => ({ ...prev, question: e.target.value }));
   };
@@ -28,4 +28,4 @@ function AskInput({ question = "", setQuesInfo }) {
   );
 }
 
-export default memo(AskInput);
+export default memo(QuesInput);

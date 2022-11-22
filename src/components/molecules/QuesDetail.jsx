@@ -1,10 +1,10 @@
 import Answer from "@atoms/qna/Answer";
-import Description from "@atoms/qna/Description";
+import QuesDesc from "@atoms/qna/QuesDesc";
 
 export default function QuesDetail({ answer, desc }) {
   return (
     <>
-      <Description desc={desc} />
+      <QuesDesc desc={desc} />
       <Answer answer={answer} />
     </>
   );

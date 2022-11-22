@@ -18,6 +18,6 @@ const Element = styled.div`
   }
 `;
 
-export default function ListElBox({ children, onClick }) {
+export default function ListElemBox({ children, onClick }) {
   return <Element onClick={onClick}>{children}</Element>;
 }
