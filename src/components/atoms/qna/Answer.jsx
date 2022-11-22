@@ -2,27 +2,28 @@ import Icon from "@atoms/Icon";
 import styled from "styled-components";
 
 const AnswerBox = styled.div`
-  margin-top: 0.6rem;
-  display: flex;
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: 1fr 18fr;
 `;
 
 const IconBox = styled.div`
-  width: 10rem;
+  position: relative;
 `;
 
 const Text = styled.div`
-  margin-top: 0.1rem;
-  font-size: 1.3rem;
-  color: ${({ theme }) => theme.colors.dimGray};
+  padding-top: 0.4rem;
+  font-size: 1.2rem;
   letter-spacing: 1px;
   line-height: 1.7rem;
+  margin-bottom: 1rem;
 `;
 
 export default function Answer({ answer }) {
   return (
     <AnswerBox>
       <IconBox>
-        <Icon name="reply" width={24} height={24} />
+        <Icon name="reply" width={32} height={32} />
       </IconBox>
       <Text>{answer}</Text>
     </AnswerBox>

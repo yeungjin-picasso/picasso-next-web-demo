@@ -1,5 +1,4 @@
 import SidebarLink from "@molecules/SidebarLink";
-import styled from "styled-components";
 
 export default function SidebarNav({ isHover }) {
   const props = [

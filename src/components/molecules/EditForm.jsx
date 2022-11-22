@@ -19,35 +19,34 @@ const InputBox = styled.div`
   width: calc(52vw - 7.4rem);
   height: 3.4rem;
   border-radius: 2.5rem;
-  padding: 0 0.6rem;
+  padding: 0 0.5rem;
   background-color: white;
   display: flex;
   align-items: center;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09), 0 1px 2px rgba(0, 0, 0, 0.18);
 `;
 
-export default function AskForm() {
+export default function EditForm({ question, desc, isPrivate }) {
   const [quesInfo, setQuesInfo] = useState({
-    isPrivate: true,
-    question: "",
-    description: "",
+    isPrivate: isPrivate,
+    question: question,
+    description: desc,
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     // question 데이터 전송 코드 작성해야함
-    e.preventDefault();
     console.log(quesInfo);
   };
 
   return (
     <Form onSubmit={handleSubmit}>
       <InputBox>
-        <PvtChkBox setQuesInfo={setQuesInfo} />
-        <AskInput setQuesInfo={setQuesInfo} />
+        <PvtChkBox isPrivate={quesInfo.isPrivate} setQuesInfo={setQuesInfo} />
+        <AskInput question={quesInfo.question} setQuesInfo={setQuesInfo} />
         <ListFormBtn name="Ask" />
       </InputBox>
       {quesInfo.question.length > 0 && (
-        <AskTextArea setQuesInfo={setQuesInfo} />
+        <AskTextArea desc={quesInfo.description} setQuesInfo={setQuesInfo} />
       )}
     </Form>
   );

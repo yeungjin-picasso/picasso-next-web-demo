@@ -4,7 +4,6 @@ import SidebarTitle from "../atoms/sidebar/SidebarTitle";
 import SidebarNav from "../organisms/SidebarNav";
 
 const Bar = styled.div`
-  width: fit-content;
   height: 100vh;
   padding: 3rem 0.8rem;
   background-color: ${(props) => props.theme.colors.darkLiver};

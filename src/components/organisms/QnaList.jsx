@@ -1,4 +1,4 @@
-import ListElement from "@molecules/ListElement";
+import Question from "@molecules/Question";
 import { useEffect, useState } from "react";
 
 export default function QnaList({ posts, pageIndex, PAGE_PER }) {
@@ -13,7 +13,7 @@ export default function QnaList({ posts, pageIndex, PAGE_PER }) {
   return (
     <>
       {posts.slice(start, end).map((qna) => (
-        <ListElement key={qna.id} qna={qna} />
+        <Question key={qna.id} qna={qna} />
       ))}
     </>
   );

@@ -14,6 +14,5 @@ const Num = styled.a`
 `;
 
 export default function PageNum({ number, onClick }) {
-  console.log(number);
   return <Num onClick={onClick}>{number}</Num>;
 }

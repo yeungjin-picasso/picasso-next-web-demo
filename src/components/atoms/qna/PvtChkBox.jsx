@@ -44,9 +44,9 @@ const Text = styled.span`
   font-size: 1.1rem;
 `;
 
-function PvtChkBox({ setQuestionInfo }) {
+function PvtChkBox({ isPrivate = true, setQuesInfo }) {
   const handleChange = () => {
-    setQuestionInfo((prev) => ({ ...prev, isPrivate: !prev.isPrivate }));
+    setQuesInfo((prev) => ({ ...prev, isPrivate: !prev.isPrivate }));
   };
   return (
     <Wrapper>
@@ -54,7 +54,7 @@ function PvtChkBox({ setQuestionInfo }) {
         <ChkBox
           type="checkbox"
           id="private"
-          defaultChecked
+          defaultChecked={isPrivate}
           onChange={handleChange}
         />
         <Text>private</Text>

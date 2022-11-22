@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const Id = styled.div`
   font-size: 1.6rem;
-  margin-right: 1rem;
   margin-top: 1.9rem;
 `;
 
