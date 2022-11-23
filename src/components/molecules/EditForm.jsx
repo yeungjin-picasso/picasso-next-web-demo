@@ -33,8 +33,9 @@ export default function EditForm({ question, desc, isPrivate }) {
     description: desc,
   });
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     // question 데이터 전송 코드 작성해야함
+    e.preventDefault();
     console.log(quesInfo);
   };
 
@@ -42,7 +43,7 @@ export default function EditForm({ question, desc, isPrivate }) {
     <Form onSubmit={handleSubmit}>
       <InputBox>
         <PvtChkBox isPrivate={quesInfo.isPrivate} setQuesInfo={setQuesInfo} />
-        <QuesInput question={quesInfo.question} setQuesInfo={setQuesInfo} />
+        <QuesInput ques={quesInfo.question} setQuesInfo={setQuesInfo} />
         <ListFormBtn name="Ask" />
       </InputBox>
       {quesInfo.question.length > 0 && (

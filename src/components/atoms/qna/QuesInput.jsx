@@ -15,14 +15,15 @@ const Input = styled.input`
   }
 `;
 
-function QuesInput({ question = "", setQuesInfo }) {
+function QuesInput({ ques = "", setQuesInfo }) {
   const handleChange = (e) => {
+    console.log(e.target.value);
     setQuesInfo((prev) => ({ ...prev, question: e.target.value }));
   };
   return (
     <Input
       placeholder="Enter a question title"
-      value={question}
+      value={ques}
       onChange={handleChange}
     />
   );

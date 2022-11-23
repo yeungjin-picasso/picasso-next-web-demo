@@ -18,23 +18,30 @@ export default function QuesIconBox({ isWriter, isAnswered, setIsEditMode }) {
     setIsEditMode(true);
   };
 
+  const deleteItem = () => {};
+
   return (
     <Wrapper>
       <IconBox>
-        {!isAnswered && (
-          <>
-            {isWriter && (
-              <Icon
-                name="edit"
-                width={32}
-                height={32}
-                onClick={handleEdit}
-                style={{ marginRight: "0.8rem" }}
-              />
-            )}
-            <Icon name="incomplete" width={32} height={32} />
-          </>
+        {isWriter && (
+          <Icon
+            name="trash"
+            width={32}
+            height={32}
+            onClick={deleteItem}
+            style={{ marginRight: "0.9rem" }}
+          />
         )}
+        {isWriter && !isAnswered && (
+          <Icon
+            name="edit"
+            width={32}
+            height={32}
+            onClick={handleEdit}
+            style={{ marginRight: "0.9rem" }}
+          />
+        )}
+        {!isAnswered && <Icon name="incomplete" width={32} height={32} />}
         {isAnswered && <Icon name="complete" width={32} height={32} />}
       </IconBox>
     </Wrapper>

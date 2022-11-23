@@ -43,11 +43,11 @@ export default function QuesForm() {
     <Form onSubmit={handleSubmit}>
       <InputBox>
         <PvtChkBox setQuesInfo={setQuesInfo} />
-        <QuesInput setQuesInfo={setQuesInfo} />
+        <QuesInput ques={quesInfo.question} setQuesInfo={setQuesInfo} />
         <ListFormBtn name="Ask" />
       </InputBox>
       {quesInfo.question.length > 0 && (
-        <QuesTextArea setQuesInfo={setQuesInfo} />
+        <QuesTextArea desc={quesInfo.description} setQuesInfo={setQuesInfo} />
       )}
     </Form>
   );
