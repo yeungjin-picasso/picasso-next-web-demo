@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Element = styled.div`
   position: relative;
   display: grid;
+  overflow-x: hidden;
   grid-template-columns: 1fr 12fr 1fr;
   width: calc(52vw - 4rem);
   margin-bottom: 1.4rem;
