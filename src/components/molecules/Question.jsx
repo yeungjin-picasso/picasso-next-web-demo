@@ -5,7 +5,7 @@ import ListWriteInfo from "@atoms/list/ListWriteInfo";
 import QuesIconBox from "@molecules/QuesIconBox";
 import QuesDetail from "@molecules/QuesDetail";
 import EditForm from "@molecules/EditForm";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { userAtom } from "../../states";
 import { useRecoilValue } from "recoil";
 
@@ -15,21 +15,29 @@ export default function Question({
   const userName = useRecoilValue(userAtom)?.nickname;
   const [showAnswer, setShowAnswer] = useState(false);
   const [editMode, setEditMode] = useState(false);
+  const isWriter = useMemo(() => userName === writer, []);
   const handleShow = () => {
-    if (!isPrivate && answer.length > 0) {
-      setShowAnswer(!showAnswer);
-    } else if (false) {
-      // 비공개 게시물이어도 자기가 올린 글이면 볼 수 있도록 조건 추가해야함.
+    if ((!isPrivate || isWriter) && answer.length > 0) {
       setShowAnswer(!showAnswer);
     }
   };
+
   if (!editMode) {
     return (
       <ListElemBox onClick={handleShow}>
         <Listidx idx={idx} />
         <div className="grow mt-2 pb-7">
-          <ListWriteInfo writer={writer} createdAt={createdAt} />
-          <ListTitle isPrivate={isPrivate} title={question} answer={answer} />
+          <ListWriteInfo
+            writer={writer}
+            isWriter={isWriter}
+            createdAt={createdAt}
+          />
+          <ListTitle
+            isPrivate={isPrivate}
+            isWriter={isWriter}
+            title={question}
+            answer={answer}
+          />
           {showAnswer && <QuesDetail desc={description} answer={answer} />}
         </div>
         <QuesIconBox
