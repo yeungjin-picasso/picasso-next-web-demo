@@ -1,4 +1,4 @@
-import Question from "@molecules/Question";
+import Question from "@molecules/qna/Question";
 import { useEffect, useState } from "react";
 
 export default function QnaList({ data, pageIndex, PAGE_PER }) {

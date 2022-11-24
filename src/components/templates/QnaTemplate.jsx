@@ -1,4 +1,4 @@
-import QuesForm from "@molecules/QuesForm";
+import QuesForm from "@molecules/qna/QuesForm";
 import Pagination from "@organisms/Pagination";
 import QnaList from "@organisms/QnaList";
 import { useQuery } from "@tanstack/react-query";

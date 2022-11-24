@@ -2,11 +2,11 @@ import Listidx from "@atoms/list/ListIdx";
 import ListElemBox from "@atoms/list/ListElemBox";
 import ListTitle from "@atoms/list/ListTitle";
 import ListWriteInfo from "@atoms/list/ListWriteInfo";
-import QuesIconBox from "@molecules/QuesIconBox";
-import QuesDetail from "@molecules/QuesDetail";
-import EditForm from "@molecules/EditForm";
+import QuesIconBox from "@molecules/qna/QuesIconBox";
+import QuesDetail from "@molecules/qna/QuesDetail";
+import QuesEditForm from "@molecules/qna/QuesEditForm";
 import { useMemo, useState } from "react";
-import { userAtom } from "../../states";
+import { userAtom } from "src/states";
 import { useRecoilValue } from "recoil";
 
 export default function Question({
@@ -50,7 +50,7 @@ export default function Question({
   }
 
   return (
-    <EditForm
+    <QuesEditForm
       idx={idx}
       question={question}
       desc={description}
