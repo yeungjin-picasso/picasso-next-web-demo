@@ -1,7 +1,7 @@
 import Question from "@molecules/Question";
 import { useEffect, useState } from "react";
 
-export default function QnaList({ posts, pageIndex, PAGE_PER }) {
+export default function QnaList({ data, pageIndex, PAGE_PER }) {
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(PAGE_PER);
 
@@ -12,7 +12,7 @@ export default function QnaList({ posts, pageIndex, PAGE_PER }) {
 
   return (
     <>
-      {posts.slice(start, end).map((qna) => (
+      {data.slice(start, end).map((qna) => (
         <Question key={qna.idx} qna={qna} />
       ))}
     </>

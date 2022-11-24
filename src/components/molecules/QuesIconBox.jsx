@@ -1,6 +1,6 @@
 import Icon from "@atoms/common/Icon";
-import { useResetRecoilState } from "recoil";
-import { getQnaList } from "src/states";
+import { useMutation } from "@tanstack/react-query";
+import { deleteQnaPostFn } from "src/api/qnaApi";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -15,16 +15,27 @@ const IconBox = styled.div`
   height: 32px;
 `;
 
-export default function QuesIconBox({ isWriter, isAnswered, setEditMode }) {
-  const setPosts = useResetRecoilState(getQnaList);
+export default function QuesIconBox({
+  idx,
+  isWriter,
+  isAnswered,
+  setEditMode,
+}) {
+  const { mutate } = useMutation("deleteQnaPostFn", deleteQnaPostFn, {
+    onSuccess: () => {
+      // getAllQnaPostsFn 라는 unique key에 대한 기존 데이터를 무효화하고 다시 가져오기
+      queryClient.invalidateQuries("getAllQnaPostsFn");
+    },
+  });
 
-  const handleEditMode = () => {
+  const handleEditMode = (e) => {
+    e.stopPropagation();
     setEditMode(true);
   };
 
-  const deleteItem = async () => {
-    await mainRequest.delete("/qna/delete", quesInfo);
-    setPosts();
+  const deleteItem = async (e) => {
+    e.stopPropagation();
+    mutate(idx);
   };
 
   return (
@@ -36,7 +47,7 @@ export default function QuesIconBox({ isWriter, isAnswered, setEditMode }) {
             width={32}
             height={32}
             onClick={deleteItem}
-            style={{ marginRight: "0.9rem" }}
+            style={{ marginRight: "0.9rem", cursor: "pointer" }}
           />
         )}
         {isWriter && !isAnswered && (
@@ -45,7 +56,7 @@ export default function QuesIconBox({ isWriter, isAnswered, setEditMode }) {
             width={32}
             height={32}
             onClick={handleEditMode}
-            style={{ marginRight: "0.9rem" }}
+            style={{ marginRight: "0.9rem", cursor: "pointer" }}
           />
         )}
         {!isAnswered && <Icon name="incomplete" width={32} height={32} />}

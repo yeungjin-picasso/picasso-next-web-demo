@@ -4,8 +4,8 @@ import QuesTextArea from "@atoms/qna/QuesTextArea";
 import PvtChkBox from "@atoms/qna/PvtChkBox";
 import { useState } from "react";
 import styled from "styled-components";
-import { useResetRecoilState } from "recoil";
-import { getQnaList } from "src/states";
+import { useMutation } from "@tanstack/react-query";
+import { updateQnaPostsFn } from "src/api/qnaApi";
 
 const Form = styled.form`
   width: calc(52vw - 4rem);
@@ -28,21 +28,22 @@ const InputBox = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09), 0 1px 2px rgba(0, 0, 0, 0.18);
 `;
 
-export default function EditForm({ idx, writer, question, desc, isPrivate }) {
-  const setPosts = useResetRecoilState(getQnaList);
+export default function EditForm({ idx, question, desc, isPrivate }) {
   const [quesInfo, setQuesInfo] = useState({
-    idx: idx,
-    writer: writer,
     isPrivate: isPrivate,
     question: question,
     description: desc,
   });
+  const { mutate } = useMutation("updateQnaPostsFn", updateQnaPostsFn, {
+    onSuccess: () => {
+      // getAllQnaPostsFn 라는 unique key에 대한 기존 데이터를 무효화하고 다시 가져오기
+      queryClient.invalidateQuries("getAllQnaPostsFn");
+    },
+  });
 
   const handleSubmit = async (e) => {
-    // question 데이터 전송 코드 작성해야함
     e.preventDefault();
-    await mainRequest.put("/qna/update", quesInfo);
-    setPosts();
+    mutate({ idx, quesInfo });
   };
 
   return (

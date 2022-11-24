@@ -1,25 +1,25 @@
 import QuesForm from "@molecules/QuesForm";
 import Pagination from "@organisms/Pagination";
 import QnaList from "@organisms/QnaList";
+import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
-import { useRecoilValue } from "recoil";
-import { getQnaList } from "src/states";
+import { QNA_LIST } from "src/api/mock/QNA_LIST";
+import { getAllQnaPostsFn } from "src/api/qnaApi";
 
 // 페이지 당 보여줄 게시물 수
 const PAGE_PER = 12;
 
 export default function QnaTemplate() {
-  const posts = useRecoilValue(getQnaList);
-
   const [pageIndex, setPageIndex] = useState(1);
 
-  // 전체 게시물 개수
-  const totalPosts = useMemo(() => posts.length, [posts]);
+  // const { data } = useQuery("getAllQnaPostsFn", getAllQnaPostsFn);
+  const data = QNA_LIST;
+  const totalPosts = useMemo(() => data.length, [data]); // 전체 게시물 개수
 
   return (
     <>
       <QuesForm />
-      <QnaList posts={posts} pageIndex={pageIndex} PAGE_PER={PAGE_PER} />
+      <QnaList data={data} pageIndex={pageIndex} PAGE_PER={PAGE_PER} />
       <Pagination
         PAGE_PER={PAGE_PER}
         totalPosts={totalPosts}

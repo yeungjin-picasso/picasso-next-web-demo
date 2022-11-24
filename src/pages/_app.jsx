@@ -8,24 +8,39 @@ import Seo from "src/components/Seo";
 import Sidebar from "@templates/Sidebar";
 import { Suspense } from "react";
 import ErrorBoundary from "src/components/ErrorBoundary";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export default function App({ Component, pageProps, canonical }) {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+        refetchOnmount: false,
+        refetchOnReconnect: false,
+        retry: 1,
+        staleTime: 5 * 1000,
+      },
+    },
+  });
+
   const router = useRouter();
 
   if (router.pathname !== "/") {
     return (
-      <RecoilRoot>
-        <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <RecoilRoot>
           <Suspense fallback={<div>Loading...</div>}>
-            <GlobalStyle />
-            <ThemeProvider theme={theme}>
-              <Sidebar />
-              <Seo canonical={canonical} />
-              <Component {...pageProps} />
-            </ThemeProvider>
+            <ErrorBoundary>
+              <GlobalStyle />
+              <ThemeProvider theme={theme}>
+                <Sidebar />
+                <Seo canonical={canonical} />
+                <Component {...pageProps} />
+              </ThemeProvider>
+            </ErrorBoundary>
           </Suspense>
-        </ErrorBoundary>
-      </RecoilRoot>
+        </RecoilRoot>
+      </QueryClientProvider>
     );
   }
 

@@ -6,13 +6,13 @@ import QuesIconBox from "@molecules/QuesIconBox";
 import QuesDetail from "@molecules/QuesDetail";
 import EditForm from "@molecules/EditForm";
 import { useState } from "react";
-import { userNameAtom } from "../../states";
+import { userAtom } from "../../states";
 import { useRecoilValue } from "recoil";
 
 export default function Question({
   qna: { idx, isPrivate, question, description, writer, createdAt, answer },
 }) {
-  const nickname = useRecoilValue(userNameAtom);
+  const userName = useRecoilValue(userAtom)?.nickname;
   const [showAnswer, setShowAnswer] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const handleShow = () => {
@@ -33,7 +33,7 @@ export default function Question({
           {showAnswer && <QuesDetail desc={description} answer={answer} />}
         </div>
         <QuesIconBox
-          isWriter={nickname === writer}
+          isWriter={userName === writer}
           isAnswered={answer.length > 0}
           setEditMode={setEditMode}
         />
@@ -44,7 +44,6 @@ export default function Question({
   return (
     <EditForm
       idx={idx}
-      writer={writer}
       question={question}
       desc={description}
       isPrivate={isPrivate}

@@ -17,7 +17,6 @@ const Input = styled.input`
 
 function QuesInput({ ques = "", setQuesInfo }) {
   const handleChange = (e) => {
-    console.log(e.target.value);
     setQuesInfo((prev) => ({ ...prev, question: e.target.value }));
   };
   return (
