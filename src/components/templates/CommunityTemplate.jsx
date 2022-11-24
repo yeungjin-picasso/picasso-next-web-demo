@@ -1,3 +1,9 @@
+import SearchForm from "@molecules/SearchForm";
+
 export default function CommunityTemplate() {
-  return <></>;
+  return (
+    <>
+      <SearchForm />
+    </>
+  );
 }

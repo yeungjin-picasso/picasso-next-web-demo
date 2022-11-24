@@ -23,7 +23,7 @@ export default function HeaderNav() {
           {elements.slice(0, 3).map((name) => {
             return <HeaderLink key={name} name={name} />;
           })}
-          <Icon className="ml-[2.5vw]" name="user" width={30} height={30} />
+          <Icon name="user" width={30} height={30} />
         </>
       )}
     </Nav>

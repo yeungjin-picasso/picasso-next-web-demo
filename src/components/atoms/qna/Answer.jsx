@@ -4,7 +4,7 @@ import styled from "styled-components";
 const AnswerBox = styled.div`
   margin-top: 1em;
   display: grid;
-  grid-template-columns: 1fr 18fr;
+  grid-template-columns: 1fr 22fr;
 `;
 
 const IconBox = styled.div`
@@ -30,9 +30,9 @@ export default function Answer({ answer, isAdmin }) {
   return (
     <AnswerBox>
       <IconBox>
-        <Icon name="reply" width={32} height={32} />
+        <Icon name="reply" width={30} height={30} />
       </IconBox>
-      <div className="mt-1 ml-2">
+      <div className="mt-2 ml-2">
         <TextTitle>Answer</TextTitle>
         {!isAdmin && <Text>{answer}</Text>}
         {isAdmin && <Textarea />}

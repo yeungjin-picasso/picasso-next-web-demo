@@ -2,13 +2,14 @@ import { memo } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  padding: 0.3rem 1.2rem;
+  padding: 0.3rem 1.2rem 0.3rem 1.8rem;
   border-right: 1px solid ${({ theme }) => theme.colors.veryLightGrey};
 `;
 
 const Label = styled.label`
   display: flex;
   align-items: center;
+  cursor: pointer;
 `;
 
 const ChkBox = styled.input`

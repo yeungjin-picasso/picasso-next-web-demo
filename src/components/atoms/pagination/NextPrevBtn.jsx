@@ -1,11 +1,15 @@
+import Icon from "@atoms/common/Icon";
 import styled from "styled-components";
-import Icon from "../common/Icon";
 
 const IconBox = styled.div`
   padding: 1rem;
   border-radius: 2rem;
   margin: 0 0.5rem;
   margin-bottom: 1.4rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export default function NextPrevBtn({ name, onClick, disabled }) {

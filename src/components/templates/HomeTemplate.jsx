@@ -23,7 +23,7 @@ export default function HomeTemplate() {
     <Layout>
       <HomeHeader />
       <HomeBody>
-        <Image src="/assets/images/main.png" alt="" fill />
+        <Image src="/assets/images/main.svg" alt="" fill />
         <TryButton />
       </HomeBody>
     </Layout>

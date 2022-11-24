@@ -10,6 +10,7 @@ const Num = styled.a`
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.cultured};
+    cursor: pointer;
   }
 `;
 

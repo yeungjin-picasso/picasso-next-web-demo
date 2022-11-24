@@ -3,7 +3,7 @@ import QuesInput from "@atoms/qna/QuesInput";
 import QuesTextArea from "@atoms/qna/QuesTextArea";
 import PvtChkBox from "@atoms/qna/PvtChkBox";
 import ListForm from "@atoms/list/listForm";
-import QuesInputBox from "@atoms/qna/QuesInputBox";
+import ListInputBox from "@atoms/list/ListInputBox";
 import { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { userAtom } from "src/states";
@@ -35,11 +35,11 @@ export default function QuesForm() {
 
   return (
     <ListForm onSubmit={handleSubmit}>
-      <QuesInputBox>
+      <ListInputBox>
         <PvtChkBox setQuesInfo={setQuesInfo} />
         <QuesInput ques={quesInfo.question} setQuesInfo={setQuesInfo} />
         <ListFormBtn name="Ask" />
-      </QuesInputBox>
+      </ListInputBox>
       {quesInfo.question.length > 0 && (
         <QuesTextArea desc={quesInfo.description} setQuesInfo={setQuesInfo} />
       )}

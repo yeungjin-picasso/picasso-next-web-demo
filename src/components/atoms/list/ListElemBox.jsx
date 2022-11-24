@@ -16,6 +16,7 @@ const Element = styled.div`
   &:hover {
     background: ${({ theme }) => theme.colors.tutu};
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
   }
 `;
 

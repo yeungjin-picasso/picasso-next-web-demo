@@ -3,7 +3,7 @@ import ListForm from "@atoms/list/listForm";
 import QuesInput from "@atoms/qna/QuesInput";
 import QuesTextArea from "@atoms/qna/QuesTextArea";
 import PvtChkBox from "@atoms/qna/PvtChkBox";
-import QuesInputBox from "@atoms/qna/QuesInputBox";
+import ListInputBox from "@atoms/list/ListInputBox";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { updateQnaPostsFn } from "src/api/qnaApi";
@@ -28,11 +28,11 @@ export default function QuesEditForm({ idx, question, desc, isPrivate }) {
 
   return (
     <ListForm onSubmit={handleSubmit}>
-      <QuesInputBox>
+      <ListInputBox>
         <PvtChkBox isPrivate={quesInfo.isPrivate} setQuesInfo={setQuesInfo} />
         <QuesInput ques={quesInfo.question} setQuesInfo={setQuesInfo} />
         <ListFormBtn name="Edit" />
-      </QuesInputBox>
+      </ListInputBox>
       {quesInfo.question.length > 0 && (
         <QuesTextArea desc={quesInfo.description} setQuesInfo={setQuesInfo} />
       )}
