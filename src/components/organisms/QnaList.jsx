@@ -13,7 +13,7 @@ export default function QnaList({ posts, pageIndex, PAGE_PER }) {
   return (
     <>
       {posts.slice(start, end).map((qna) => (
-        <Question key={qna.id} qna={qna} />
+        <Question key={qna.idx} qna={qna} />
       ))}
     </>
   );

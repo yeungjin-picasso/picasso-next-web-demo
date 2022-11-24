@@ -1,4 +1,6 @@
 import Icon from "@atoms/common/Icon";
+import { useResetRecoilState } from "recoil";
+import { getQnaList } from "src/states";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -13,12 +15,17 @@ const IconBox = styled.div`
   height: 32px;
 `;
 
-export default function QuesIconBox({ isWriter, isAnswered, setIsEditMode }) {
-  const handleEdit = () => {
-    setIsEditMode(true);
+export default function QuesIconBox({ isWriter, isAnswered, setEditMode }) {
+  const setPosts = useResetRecoilState(getQnaList);
+
+  const handleEditMode = () => {
+    setEditMode(true);
   };
 
-  const deleteItem = () => {};
+  const deleteItem = async () => {
+    await mainRequest.delete("/qna/delete", quesInfo);
+    setPosts();
+  };
 
   return (
     <Wrapper>
@@ -37,7 +44,7 @@ export default function QuesIconBox({ isWriter, isAnswered, setIsEditMode }) {
             name="edit"
             width={32}
             height={32}
-            onClick={handleEdit}
+            onClick={handleEditMode}
             style={{ marginRight: "0.9rem" }}
           />
         )}

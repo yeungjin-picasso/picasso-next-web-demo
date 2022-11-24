@@ -4,6 +4,8 @@ import QuesTextArea from "@atoms/qna/QuesTextArea";
 import PvtChkBox from "@atoms/qna/PvtChkBox";
 import { useState } from "react";
 import styled from "styled-components";
+import { useResetRecoilState } from "recoil";
+import { getQnaList } from "src/states";
 
 const Form = styled.form`
   width: calc(52vw - 4rem);
@@ -26,17 +28,21 @@ const InputBox = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09), 0 1px 2px rgba(0, 0, 0, 0.18);
 `;
 
-export default function EditForm({ question, desc, isPrivate }) {
+export default function EditForm({ idx, writer, question, desc, isPrivate }) {
+  const setPosts = useResetRecoilState(getQnaList);
   const [quesInfo, setQuesInfo] = useState({
+    idx: idx,
+    writer: writer,
     isPrivate: isPrivate,
     question: question,
     description: desc,
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // question 데이터 전송 코드 작성해야함
     e.preventDefault();
-    console.log(quesInfo);
+    await mainRequest.put("/qna/update", quesInfo);
+    setPosts();
   };
 
   return (
@@ -44,7 +50,7 @@ export default function EditForm({ question, desc, isPrivate }) {
       <InputBox>
         <PvtChkBox isPrivate={quesInfo.isPrivate} setQuesInfo={setQuesInfo} />
         <QuesInput ques={quesInfo.question} setQuesInfo={setQuesInfo} />
-        <ListFormBtn name="Ask" />
+        <ListFormBtn name="Edit" />
       </InputBox>
       {quesInfo.question.length > 0 && (
         <QuesTextArea desc={quesInfo.description} setQuesInfo={setQuesInfo} />

@@ -4,6 +4,8 @@ import QuesTextArea from "@atoms/qna/QuesTextArea";
 import PvtChkBox from "@atoms/qna/PvtChkBox";
 import { useState } from "react";
 import styled from "styled-components";
+import { useRecoilValue, useResetRecoilState } from "recoil";
+import { getQnaList, userNameAtom } from "src/states";
 
 const Form = styled.form`
   width: calc(52vw - 4rem);
@@ -27,16 +29,19 @@ const InputBox = styled.div`
 `;
 
 export default function QuesForm() {
+  const nickname = useRecoilValue(userNameAtom);
+  const setPosts = useResetRecoilState(getQnaList);
   const [quesInfo, setQuesInfo] = useState({
     isPrivate: true,
     question: "",
     description: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // question 데이터 전송 코드 작성해야함
     e.preventDefault();
-    console.log(quesInfo);
+    await mainRequest.post("/qna/create", quesInfo);
+    setPosts();
   };
 
   return (

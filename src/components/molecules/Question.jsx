@@ -1,20 +1,20 @@
+import Listidx from "@atoms/list/ListIdx";
 import ListElemBox from "@atoms/list/ListElemBox";
-import ListId from "@atoms/list/ListId";
 import ListTitle from "@atoms/list/ListTitle";
 import ListWriteInfo from "@atoms/list/ListWriteInfo";
 import QuesIconBox from "@molecules/QuesIconBox";
 import QuesDetail from "@molecules/QuesDetail";
 import EditForm from "@molecules/EditForm";
 import { useState } from "react";
-import { userNameAtom } from "src/states";
+import { userNameAtom } from "../../states";
 import { useRecoilValue } from "recoil";
 
 export default function Question({
-  qna: { id, isPrivate, question, description, writer, createdAt, answer },
+  qna: { idx, isPrivate, question, description, writer, createdAt, answer },
 }) {
   const nickname = useRecoilValue(userNameAtom);
   const [showAnswer, setShowAnswer] = useState(false);
-  const [isEditMode, setIsEditMode] = useState(false);
+  const [editMode, setEditMode] = useState(false);
   const handleShow = () => {
     if (!isPrivate && answer.length > 0) {
       setShowAnswer(!showAnswer);
@@ -23,10 +23,10 @@ export default function Question({
       setShowAnswer(!showAnswer);
     }
   };
-  if (!isEditMode) {
+  if (!editMode) {
     return (
       <ListElemBox onClick={handleShow}>
-        <ListId id={id} />
+        <Listidx idx={idx} />
         <div className="grow mt-2 pb-7">
           <ListWriteInfo writer={writer} createdAt={createdAt} />
           <ListTitle isPrivate={isPrivate} title={question} answer={answer} />
@@ -35,13 +35,19 @@ export default function Question({
         <QuesIconBox
           isWriter={nickname === writer}
           isAnswered={answer.length > 0}
-          setIsEditMode={setIsEditMode}
+          setEditMode={setEditMode}
         />
       </ListElemBox>
     );
   }
 
   return (
-    <EditForm question={question} desc={description} isPrivate={isPrivate} />
+    <EditForm
+      idx={idx}
+      writer={writer}
+      question={question}
+      desc={description}
+      isPrivate={isPrivate}
+    />
   );
 }
