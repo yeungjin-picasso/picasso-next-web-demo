@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   padding: 0.3rem 1.2rem 0.3rem 1.8rem;
+  margin-right: 0.6rem;
   border-right: 1px solid ${({ theme }) => theme.colors.veryLightGrey};
 `;
 
@@ -17,8 +18,8 @@ const ChkBox = styled.input`
   -webkit-appearance: none;
   appearance: none;
   /* creating a custom design */
-  width: 1.1em;
-  height: 1.1em;
+  width: 1.2em;
+  height: 1.2em;
   border-radius: 0.15em;
   border: 0.1em solid ${({ theme }) => theme.colors.sunsetOrange};
   outline: none;
@@ -32,17 +33,17 @@ const ChkBox = styled.input`
 
   &:checked::before {
     content: "\u2714";
-    font-size: 1em;
+    font-size: 1.1em;
     color: #fff;
     position: absolute;
-    top: -1px;
+    top: 0px;
     left: 1px;
   }
 `;
 
 const Text = styled.span`
   margin-left: 0.8rem;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 `;
 
 function PvtChkBox({ isPrivate = true, setQuesInfo }) {

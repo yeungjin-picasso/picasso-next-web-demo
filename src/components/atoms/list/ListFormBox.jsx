@@ -9,6 +9,6 @@ const Form = styled.form`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09), 0 1px 2px rgba(0, 0, 0, 0.18);
 `;
 
-export default function ListForm({ children, onSubmit }) {
+export default function ListFormBox({ children, onSubmit }) {
   return <Form onSubmit={onSubmit}>{children}</Form>;
 }

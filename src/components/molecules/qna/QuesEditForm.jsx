@@ -1,12 +1,12 @@
 import ListFormBtn from "@atoms/list/ListFormBtn";
-import ListForm from "@atoms/list/listForm";
-import QuesInput from "@atoms/qna/QuesInput";
+import ListForm from "@atoms/list/ListFormBox";
 import QuesTextArea from "@atoms/qna/QuesTextArea";
 import PvtChkBox from "@atoms/qna/PvtChkBox";
 import ListInputBox from "@atoms/list/ListInputBox";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { updateQnaPostsFn } from "src/api/qnaApi";
+import ListInput from "@atoms/list/ListInput";
 
 export default function QuesEditForm({ idx, question, desc, isPrivate }) {
   const [quesInfo, setQuesInfo] = useState({
@@ -26,11 +26,19 @@ export default function QuesEditForm({ idx, question, desc, isPrivate }) {
     mutate({ idx, quesInfo });
   };
 
+  const handleChange = (e) => {
+    setQuesInfo((prev) => ({ ...prev, question: e.target.value }));
+  };
+
   return (
     <ListForm onSubmit={handleSubmit}>
       <ListInputBox>
         <PvtChkBox isPrivate={quesInfo.isPrivate} setQuesInfo={setQuesInfo} />
-        <QuesInput ques={quesInfo.question} setQuesInfo={setQuesInfo} />
+        <ListInput
+          placeholder="Ask a question"
+          value={quesInfo.question}
+          onChange={handleChange}
+        />
         <ListFormBtn name="Edit" />
       </ListInputBox>
       {quesInfo.question.length > 0 && (

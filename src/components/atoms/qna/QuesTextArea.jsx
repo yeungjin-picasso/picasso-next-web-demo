@@ -24,7 +24,7 @@ function QuesTextArea({ desc = "", setQuesInfo }) {
   };
   return (
     <TextArea
-      placeholder="Enter a question description"
+      placeholder="Include all the information someone would need to answer your question"
       onChange={handleChange}
       value={desc}
     ></TextArea>

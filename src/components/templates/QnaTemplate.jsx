@@ -1,10 +1,11 @@
 import QuesForm from "@molecules/qna/QuesForm";
 import Pagination from "@organisms/Pagination";
 import QnaList from "@organisms/QnaList";
-import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import { QNA_LIST } from "src/api/mock/QNA_LIST";
+import { useQuery } from "@tanstack/react-query";
 import { getAllQnaPostsFn } from "src/api/qnaApi";
+import SearchForm from "@molecules/SearchForm";
 
 // 페이지 당 보여줄 게시물 수
 const PAGE_PER = 12;
