@@ -16,7 +16,7 @@ export default function SearchForm() {
     <ListForm>
       <ListInputBox>
         <Icon
-          name="search"
+          name="disabled/search"
           width={28}
           height={28}
           style={{ marginLeft: "1.8rem" }}

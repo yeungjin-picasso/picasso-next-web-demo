@@ -10,6 +10,7 @@ const Container = styled.div`
   height: 100vh;
   margin: 0 auto;
   padding: 2.7rem 2rem;
+  position: relative;
 `;
 
 export default function PageLayout({ children, title }) {
