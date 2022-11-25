@@ -19,12 +19,16 @@ const Private = styled.div`
   margin-right: 1rem;
 `;
 
-const PostTitle = styled.div`
+const PostTitle = styled.span`
   color: ${({ isPrivate, isWriter, theme }) =>
     isPrivate && isWriter ? theme.colors.novel : "black"};
 `;
 
-export default function ListTitle({ isPrivate, isWriter, title }) {
+export default function ListTitle({
+  isPrivate = false,
+  isWriter = false,
+  title,
+}) {
   return (
     <Title>
       {isPrivate && <Private>[private]</Private>}

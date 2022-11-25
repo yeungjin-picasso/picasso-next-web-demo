@@ -4,8 +4,10 @@ import { deleteQnaPostFn } from "src/api/qnaApi";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
   position: absolute;
-  top: 1.6rem;
   right: 2rem;
 `;
 

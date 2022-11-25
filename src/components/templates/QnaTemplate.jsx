@@ -9,13 +9,10 @@ import { getAllQnaPostsFn } from "src/api/qnaApi";
 import Icon from "@atoms/common/Icon";
 import styled from "styled-components";
 
-// 페이지 당 보여줄 게시물 수
-const PAGE_PER = 12;
-
 const Wrapper = styled.div`
   display: flex;
   position: absolute;
-  top: 6.3rem;
+  top: 6.8rem;
   right: 2rem;
 
   div:last-child {
@@ -26,17 +23,24 @@ const Wrapper = styled.div`
 const IconBox = styled.div`
   background-color: ${({ theme, formSelector }) => {
     if (formSelector) {
-      return theme.colors.veryLightGrey;
+      return theme.colors.tutu;
     }
     return theme.colors.cultured;
   }};
   padding: 0.8rem;
   border-radius: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09), 0 1px 2px rgba(0, 0, 0, 0.18);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.veryLightGrey};
+    background-color: ${({ theme }) => theme.colors.tutu};
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.16);
   }
 `;
+
+// 페이지 당 보여줄 게시물 수
+const PAGE_PER = 12;
 
 export default function QnaTemplate() {
   const [pageIndex, setPageIndex] = useState(1);
@@ -54,10 +58,10 @@ export default function QnaTemplate() {
     <>
       <Wrapper>
         <IconBox onClick={handleForm} formSelector={!formSelector}>
-          <Icon name="write" />
+          <Icon name="write" width={32} height={32} />
         </IconBox>
         <IconBox onClick={handleForm} formSelector={formSelector}>
-          <Icon name="search" />
+          <Icon name="search" width={32} height={32} />
         </IconBox>
       </Wrapper>
       {!formSelector && <QuesForm />}

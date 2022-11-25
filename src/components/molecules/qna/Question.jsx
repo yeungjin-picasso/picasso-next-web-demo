@@ -36,7 +36,6 @@ export default function Question({
             isPrivate={isPrivate}
             isWriter={isWriter}
             title={question}
-            answer={answer}
           />
           {showAnswer && <QuesDetail desc={description} answer={answer} />}
         </div>
