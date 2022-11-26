@@ -19,9 +19,9 @@ export default function PostIconBox({ viewCount, replyCount }) {
   return (
     <Container>
       <Icon name="comment" width="28" height="28" />
-      <Text style={{ marginRight: "0.7rem" }}>{viewCount}</Text>
+      <Text style={{ marginRight: "0.7rem" }}>{replyCount}</Text>
       <Icon name="eye" width="34" height="34" />
-      <Text>{replyCount}</Text>
+      <Text>{viewCount}</Text>
     </Container>
   );
 }

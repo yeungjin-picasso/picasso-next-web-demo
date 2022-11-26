@@ -6,10 +6,12 @@ import ListTitle from "@atoms/list/ListTitle";
 
 export default function Post({
   post: { idx, writer, title, createdAt, viewCount, replyCount },
+  index,
+  isSortTopViews,
 }) {
   return (
     <ListElemBox>
-      <Listidx idx={idx} />
+      <Listidx idx={idx} index={index} isSortTopViews={isSortTopViews} />
       <div className="grow mt-2 pb-7">
         <ListWriteInfo writer={writer} createdAt={createdAt} />
         <ListTitle title={title} />

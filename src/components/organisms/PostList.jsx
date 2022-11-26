@@ -1,7 +1,12 @@
 import Post from "@molecules/community/Post";
 import { useEffect, useState } from "react";
 
-export default function PostList({ data, pageIndex, PAGE_PER }) {
+export default function PostList({
+  data,
+  pageIndex,
+  PAGE_PER,
+  isSortTopViews,
+}) {
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(PAGE_PER);
 
@@ -12,8 +17,13 @@ export default function PostList({ data, pageIndex, PAGE_PER }) {
 
   return (
     <>
-      {data.slice(start, end).map((post) => (
-        <Post key={post.idx} post={post} />
+      {data.slice(start, end).map((post, i) => (
+        <Post
+          key={post.idx}
+          post={post}
+          index={i}
+          isSortTopViews={isSortTopViews}
+        />
       ))}
     </>
   );
