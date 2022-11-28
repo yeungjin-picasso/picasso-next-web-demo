@@ -2,7 +2,7 @@ import QuesForm from "@molecules/qna/QuesForm";
 import SearchForm from "@molecules/SearchForm";
 import Pagination from "@organisms/Pagination";
 import QnaList from "@organisms/QnaList";
-import { useCallback, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { QNA_LIST } from "src/api/mock/QNA_LIST";
 import { useQuery } from "@tanstack/react-query";
 import { getAllQnaPostsFn } from "src/api/qnaApi";
@@ -22,14 +22,14 @@ export default function QnaTemplate() {
   const arr = useMemo(() => {
     return [
       {
-        iconName: "write",
-        fn: () => setFormSelector(false),
-        trigger: !formSelector,
-      },
-      {
         iconName: "search",
         fn: () => setFormSelector(true),
         trigger: formSelector,
+      },
+      {
+        iconName: "write",
+        fn: () => setFormSelector(false),
+        trigger: !formSelector,
       },
     ];
   }, [formSelector]);

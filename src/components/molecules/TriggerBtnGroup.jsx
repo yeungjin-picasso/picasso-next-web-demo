@@ -5,7 +5,7 @@ const Group = styled.div`
   display: flex;
   position: absolute;
   top: 6rem;
-  right: 6.5rem;
+  right: 2rem;
 
   button {
     margin-right: 0.9rem;
@@ -17,7 +17,7 @@ const Group = styled.div`
 `;
 
 const IconBox = styled.button`
-  background-color: ${({ theme, trigger }) => trigger && theme.colors.cultured};
+  background-color: ${({ trigger }) => trigger && "#e9f3fe"};
   height: 3.6rem;
   width: 3.6rem;
   display: flex;
@@ -35,7 +35,7 @@ const IconBox = styled.button`
 
 export default function TriggerBtnGroup({ arr }) {
   return (
-    <Group>
+    <Group className=".group">
       {arr.map((v, i) => {
         return (
           <IconBox type="button" onClick={v.fn} key={i} trigger={v.trigger}>

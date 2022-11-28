@@ -15,7 +15,7 @@ const PAGE_PER = 12;
 const data = COMMUNITY_LIST;
 
 export default function CommunityTemplate() {
-  const [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(false);
   const [isSortTopViews, setIsSortTopViews] = useState(false);
   const query = useRouter().query;
   const { page } = query.page ? query : { page: 1 };
@@ -38,8 +38,8 @@ export default function CommunityTemplate() {
 
   const arr = useMemo(
     () => [
-      { iconName: "recent", fn: sortRecent, trigger: !isSortTopViews },
       { iconName: "star", fn: sortTopViews, trigger: isSortTopViews },
+      { iconName: "recent", fn: sortRecent, trigger: !isSortTopViews },
     ],
     [sortTopViews, sortRecent, isSortTopViews],
   );
