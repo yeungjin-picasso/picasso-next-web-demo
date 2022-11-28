@@ -9,7 +9,6 @@ const Form = styled.form`
   display: flex;
   align-items: center;
   padding: 1.5rem;
-  margin-bottom: 1.2rem;
   border-radius: 1rem;
   background-color: ${({ theme }) => theme.colors.cultured};
   border: 1px solid ${({ theme }) => theme.colors.dimGray};

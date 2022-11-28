@@ -12,7 +12,7 @@ const Post = styled.div`
 `;
 
 export default function DetailPost({
-  data: { title, writer, content, createdAt, viewCount, replyCount },
+  posts: { title, writer, content, createdAt, viewCount, replyCount },
 }) {
   return (
     <Post>
