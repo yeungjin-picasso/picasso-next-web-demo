@@ -26,7 +26,7 @@ export default function PageNum({ number }) {
     <Link href={`community/?page=${number}`}>
       <Num
         style={{
-          backgroundColor: Number(page) === number ? "#CECDCD" : "",
+          backgroundColor: Number(page) === number ? "#CECDCD" : "none",
         }}
       >
         {number}
