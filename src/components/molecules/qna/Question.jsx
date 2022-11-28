@@ -1,4 +1,4 @@
-import Listidx from "@atoms/list/ListIdx";
+import ListId from "@atoms/list/ListId";
 import ListElemBox from "@atoms/list/ListElemBox";
 import ListTitle from "@atoms/list/ListTitle";
 import ListWriteInfo from "@atoms/list/ListWriteInfo";
@@ -10,7 +10,7 @@ import { userAtom } from "src/states";
 import { useRecoilValue } from "recoil";
 
 export default function Question({
-  qna: { idx, isPrivate, question, description, writer, createdAt, answer },
+  qna: { id, isPrivate, question, description, writer, createdAt, answer },
 }) {
   const userName = useRecoilValue(userAtom)?.nickname;
   const [showAnswer, setShowAnswer] = useState(false);
@@ -25,7 +25,7 @@ export default function Question({
   if (!editMode) {
     return (
       <ListElemBox onClick={handleShow}>
-        <Listidx idx={idx} />
+        <ListId id={id} />
         <div className="grow mt-2 pb-7">
           <ListWriteInfo
             writer={writer}
@@ -50,7 +50,7 @@ export default function Question({
 
   return (
     <QuesEditForm
-      idx={idx}
+      id={id}
       question={question}
       desc={description}
       isPrivate={isPrivate}

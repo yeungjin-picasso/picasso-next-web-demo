@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { updateQnaPostsFn } from "src/api/qnaApi";
 
-export default function QuesEditForm({ idx, question, desc, isPrivate }) {
+export default function QuesEditForm({ id, question, desc, isPrivate }) {
   const [quesInfo, setQuesInfo] = useState({
     isPrivate: isPrivate,
     question: question,
@@ -23,7 +23,7 @@ export default function QuesEditForm({ idx, question, desc, isPrivate }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    mutate({ idx, quesInfo });
+    mutate({ id, quesInfo });
   };
 
   const handleChange = (e) => {

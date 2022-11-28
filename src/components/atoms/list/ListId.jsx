@@ -10,8 +10,8 @@ const Index = styled.div`
   }
 `;
 
-export default function Listidx({ idx, index, isSortTopViews }) {
+export default function ListId({ id, index, isSortTopViews }) {
   return (
-    <Index>{isSortTopViews && index < 3 ? <span>Top.</span> : `${idx}.`}</Index>
+    <Index>{isSortTopViews && index < 3 ? <span>Top.</span> : `${id}.`}</Index>
   );
 }

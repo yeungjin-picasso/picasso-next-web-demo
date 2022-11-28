@@ -19,21 +19,26 @@ const Private = styled.div`
   margin-right: 1rem;
 `;
 
-const PostTitle = styled.span`
+const PostTitle = styled.a`
   color: ${({ isPrivate, isWriter, theme }) =>
     isPrivate && isWriter ? theme.colors.novel : "black"};
+
+  &:hover {
+    font-weight: bold;
+  }
 `;
 
 export default function ListTitle({
   isPrivate = false,
   isWriter = false,
   title,
+  onClick = null,
 }) {
   return (
     <Title>
       {isPrivate && <Private>[private]</Private>}
       {(!isPrivate || isWriter) && (
-        <PostTitle isPrivate={isPrivate} isWriter={isWriter}>
+        <PostTitle onClick={onClick} isPrivate={isPrivate} isWriter={isWriter}>
           {title}
         </PostTitle>
       )}

@@ -1,6 +1,6 @@
 export const QNA_LIST = [
   {
-    idx: 21,
+    id: 21,
     question: "What is the capital of Suriname?",
     writer: "wooowo",
     description:
@@ -10,7 +10,7 @@ export const QNA_LIST = [
     isPrivate: false,
   },
   {
-    idx: 20,
+    id: 20,
     question: "What is the capital of Australia?",
     writer: "qwefqwf",
     description:
@@ -20,7 +20,7 @@ export const QNA_LIST = [
     isPrivate: false,
   },
   {
-    idx: 19,
+    id: 19,
     question: "What is the capital of Argentina?",
     writer: "qwjfrtj",
     description:
@@ -31,7 +31,7 @@ export const QNA_LIST = [
     isPrivate: true,
   },
   {
-    idx: 18,
+    id: 18,
     question: "What is the capital of Vietnam?",
     writer: "rtj546",
     description: "Lorem Ipsum s PageMaker",
@@ -41,7 +41,7 @@ export const QNA_LIST = [
     isPrivate: false,
   },
   {
-    idx: 17,
+    id: 17,
     question: "What is the capital of Canada?",
     writer: "ytytm651",
     description:
@@ -52,7 +52,7 @@ export const QNA_LIST = [
     isPrivate: true,
   },
   {
-    idx: 16,
+    id: 16,
     question: "What is the capital of India?",
     writer: "wootrntrowo",
     description:
@@ -63,7 +63,7 @@ export const QNA_LIST = [
     isPrivate: false,
   },
   {
-    idx: 15,
+    id: 15,
     question: "What is the capital of Italy?",
     writer: "wooowo",
     description:
@@ -74,7 +74,7 @@ export const QNA_LIST = [
     isPrivate: true,
   },
   {
-    idx: 14,
+    id: 14,
     question: "What is the capital of Thailand?",
     writer: "wooowo",
     description:
@@ -84,7 +84,7 @@ export const QNA_LIST = [
     isPrivate: false,
   },
   {
-    idx: 13,
+    id: 13,
     question: "What is the capital of Switzerland?",
     writer: "ergre",
     description:
@@ -95,7 +95,7 @@ export const QNA_LIST = [
     isPrivate: true,
   },
   {
-    idx: 12,
+    id: 12,
     question: "What is the capital of Ghana?",
     writer: "wooowo",
     description:
@@ -106,7 +106,7 @@ export const QNA_LIST = [
     isPrivate: false,
   },
   {
-    idx: 11,
+    id: 11,
     question: "What is the capital of Ukraine?",
     writer: "ergre",
     description:
@@ -117,7 +117,7 @@ export const QNA_LIST = [
     isPrivate: false,
   },
   {
-    idx: 10,
+    id: 10,
     question: "What is the capital of Chile?",
     writer: "qwdqwd",
     description:
@@ -128,7 +128,7 @@ export const QNA_LIST = [
     isPrivate: false,
   },
   {
-    idx: 9,
+    id: 9,
     question: "What is the capital of Korea?",
     writer: "fffgf",
     description:
@@ -139,7 +139,7 @@ export const QNA_LIST = [
     isPrivate: false,
   },
   {
-    idx: 8,
+    id: 8,
     question: "What is the capital of Japan?",
     writer: "ggwe54",
     description:
@@ -150,7 +150,7 @@ export const QNA_LIST = [
     isPrivate: false,
   },
   {
-    idx: 7,
+    id: 7,
     question: "What is the capital of France?",
     writer: "wooowo",
     description:
@@ -161,7 +161,7 @@ export const QNA_LIST = [
     isPrivate: false,
   },
   {
-    idx: 6,
+    id: 6,
     question: "What is the capital of Sweden?",
     writer: "kuyk545",
     description:
@@ -172,7 +172,7 @@ export const QNA_LIST = [
     isPrivate: false,
   },
   {
-    idx: 5,
+    id: 5,
     question: "What is the capital of Germany?",
     writer: "yuytj94",
     description:
@@ -183,7 +183,7 @@ export const QNA_LIST = [
     isPrivate: true,
   },
   {
-    idx: 4,
+    id: 4,
     question: "What is the capital of Brazil?",
     writer: "ytjtyj56",
     description:
@@ -194,7 +194,7 @@ export const QNA_LIST = [
     isPrivate: false,
   },
   {
-    idx: 3,
+    id: 3,
     question: "What is the capital of China?",
     writer: "wooowo",
     description:
@@ -205,7 +205,7 @@ export const QNA_LIST = [
     isPrivate: true,
   },
   {
-    idx: 2,
+    id: 2,
     question: "What is the capital of Russia?",
     writer: "trhtrh88",
     description:
@@ -216,7 +216,7 @@ export const QNA_LIST = [
     isPrivate: false,
   },
   {
-    idx: 1,
+    id: 1,
     question: "What is the capital of Denmark?",
     writer: "wooowo",
     description:
