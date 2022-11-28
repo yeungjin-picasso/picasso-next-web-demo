@@ -7,17 +7,18 @@ import { QNA_LIST } from "src/api/mock/QNA_LIST";
 import { useQuery } from "@tanstack/react-query";
 import { getAllQnaPostsFn } from "src/api/qnaApi";
 import TriggerBtnGroup from "@molecules/TriggerBtnGroup";
+import { useRouter } from "next/router";
 
 // 페이지 당 보여줄 게시물 수
 const PAGE_PER = 12;
 
 export default function QnaTemplate() {
-  const [pageIndex, setPageIndex] = useState(1);
   const [formSelector, setFormSelector] = useState(false);
-
   // const { data } = useQuery("getAllQnaPostsFn", getAllQnaPostsFn);
   const data = QNA_LIST;
   const totalPosts = useMemo(() => data.length, [data]); // 전체 게시물 개수
+  const query = useRouter().query;
+  const { page } = query.page ? query : { page: 1 };
 
   const arr = useMemo(() => {
     return [
@@ -39,13 +40,8 @@ export default function QnaTemplate() {
       <TriggerBtnGroup arr={arr} />
       {!formSelector && <QuesForm />}
       {formSelector && <SearchForm />}
-      <QnaList data={data} pageIndex={pageIndex} PAGE_PER={PAGE_PER} />
-      <Pagination
-        PAGE_PER={PAGE_PER}
-        totalPosts={totalPosts}
-        pageIndex={pageIndex}
-        setPageIndex={setPageIndex}
-      />
+      <QnaList data={data} page={page} PAGE_PER={PAGE_PER} />
+      <Pagination PAGE_PER={PAGE_PER} totalPosts={totalPosts} page={page} />
     </>
   );
 }
