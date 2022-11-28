@@ -3,10 +3,10 @@ import ListForm from "@atoms/list/ListFormBox";
 import QuesTextArea from "@atoms/qna/QuesTextArea";
 import PvtChkBox from "@atoms/qna/PvtChkBox";
 import ListInputBox from "@atoms/list/ListInputBox";
+import ListInput from "@atoms/list/ListInput";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { updateQnaPostsFn } from "src/api/qnaApi";
-import ListInput from "@atoms/list/ListInput";
 
 export default function QuesEditForm({ idx, question, desc, isPrivate }) {
   const [quesInfo, setQuesInfo] = useState({

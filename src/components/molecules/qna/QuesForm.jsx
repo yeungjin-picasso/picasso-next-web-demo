@@ -12,14 +12,12 @@ import ListInput from "@atoms/list/ListInput";
 
 export default function QuesForm() {
   const userName = useRecoilValue(userAtom)?.nickname;
-
   const { mutate } = useMutation("createQnaPostFn", createQnaPostFn, {
     onSuccess: () => {
       // getAllQnaPostsFn 라는 unique key에 대한 기존 데이터를 무효화하고 다시 가져오기
       queryClient.invalidateQuries("getAllQnaPostsFn");
     },
   });
-
   const [quesInfo, setQuesInfo] = useState({
     writer: userName,
     isPrivate: true,
@@ -30,7 +28,6 @@ export default function QuesForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     mutate(quesInfo);
-    setPosts();
   };
 
   const handleChange = (e) => {

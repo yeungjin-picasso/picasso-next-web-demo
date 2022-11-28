@@ -11,7 +11,7 @@ const IconBox = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: lightgoldenrodyellow;
+  background: #dce2f0;
   box-shadow: 0 4px 1px rgba(0, 0, 0, 0.09), 0 4px 1px rgba(0, 0, 0, 0.18);
   transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 

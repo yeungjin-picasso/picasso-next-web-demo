@@ -6,6 +6,8 @@ import PostCreateForm from "@organisms/PostCreateForm";
 import PostList from "@organisms/PostList";
 import { useRouter } from "next/router";
 import { useCallback, useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getAllCommPostsFn } from "src/api/commApi";
 import { COMMUNITY_LIST } from "src/api/mock/COMMUNITTY_LIST";
 
 // 페이지 당 보여줄 게시물 수
@@ -17,7 +19,7 @@ export default function CommunityTemplate() {
   const [isSortTopViews, setIsSortTopViews] = useState(false);
   const query = useRouter().query;
   const { page } = query.page ? query : { page: 1 };
-
+  // const { data } = useQuery("getAllCommPostsFn", getAllCommPostsFn);
   const totalPosts = data.length; // 전체 게시물 개수
 
   const sortTopViews = useCallback(() => {
