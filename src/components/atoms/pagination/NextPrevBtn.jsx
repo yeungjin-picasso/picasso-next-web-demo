@@ -5,10 +5,11 @@ const IconBox = styled.div`
   border-radius: 2rem;
   padding: 0.5rem;
   margin: 0 0.5rem;
-  margin-bottom: 1.4rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
   &:hover {
     cursor: pointer;
+    transform: scale(1.2);
   }
 `;
 

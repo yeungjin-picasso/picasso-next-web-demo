@@ -7,7 +7,7 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   width: 52vw;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 2.7rem 2rem;
   position: relative;
