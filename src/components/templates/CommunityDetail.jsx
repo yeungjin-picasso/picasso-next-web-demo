@@ -1,4 +1,5 @@
 import DetailPost from "@organisms/DetailPost";
+import PostComment from "@organisms/PostComment";
 import { useQuery } from "@tanstack/react-query";
 import { getCommPostFn } from "src/api/commApi";
 import { COMMUNITY_LIST } from "src/api/mock/COMMUNITTY_LIST";
@@ -27,6 +28,7 @@ export default function CommunityDetail({ id }) {
   return (
     <Container>
       <DetailPost data={data} />
+      <PostComment />
     </Container>
   );
 }
