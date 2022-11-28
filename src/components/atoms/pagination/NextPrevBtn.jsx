@@ -2,8 +2,8 @@ import Icon from "@atoms/common/Icon";
 import styled from "styled-components";
 
 const IconBox = styled.div`
-  padding: 1rem;
   border-radius: 2rem;
+  padding: 0.5rem;
   margin: 0 0.5rem;
   margin-bottom: 1.4rem;
 

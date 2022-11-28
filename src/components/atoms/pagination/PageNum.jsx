@@ -1,10 +1,13 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 
-const Num = styled.a`
-  font-size: 1.7rem;
-  padding: 1rem 1.6rem;
-  border-radius: 3rem;
-  line-height: 1.8rem;
+const Num = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1rem;
+  font-size: 1.5rem;
   margin: 0 0.5rem;
   margin-bottom: 1.4rem;
 
@@ -14,6 +17,17 @@ const Num = styled.a`
   }
 `;
 
-export default function PageNum({ number, onClick }) {
-  return <Num onClick={onClick}>{number}</Num>;
+export default function PageNum({ number }) {
+  const { page } = useRouter().query;
+  return (
+    <Link href={`community/?page=${number}`}>
+      <Num
+        style={{
+          backgroundColor: Number(page) === number ? "#CECDCD" : "",
+        }}
+      >
+        {number}
+      </Num>
+    </Link>
+  );
 }
