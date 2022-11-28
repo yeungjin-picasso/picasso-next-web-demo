@@ -7,15 +7,17 @@ const Container = styled.div`
   right: 0;
   bottom: 0;
   z-index: 200;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 const StyledModal = styled.div`
   position: fixed;
-  width: 40%;
+  width: 36%;
   height: 70%;
   top: 15%;
-  left: 30%;
+  left: 32%;
+  padding: 1.5rem;
+  border-radius: 1rem;
   background-color: white;
 `;
 

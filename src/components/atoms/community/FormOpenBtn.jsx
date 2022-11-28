@@ -20,7 +20,7 @@ const IconBox = styled.button`
   }
 `;
 
-export default function CreateIconBtn({ fn }) {
+export default function FormOpenBtn({ fn }) {
   return (
     <IconBox type="button" onClick={fn}>
       <Icon name="write" width={28} height={28} />

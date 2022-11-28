@@ -1,4 +1,4 @@
-import CreateIconBtn from "@atoms/community/CreateIconBtn";
+import FormOpenBtn from "@atoms/community/FormOpenBtn";
 import SearchForm from "@molecules/SearchForm";
 import TriggerBtnGroup from "@molecules/TriggerBtnGroup";
 import Pagination from "@organisms/Pagination";
@@ -13,7 +13,7 @@ const PAGE_PER = 12;
 const data = COMMUNITY_LIST;
 
 export default function CommunityTemplate() {
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(true);
   const [isSortTopViews, setIsSortTopViews] = useState(false);
   const query = useRouter().query;
   const { page } = query.page ? query : { page: 1 };
@@ -45,7 +45,7 @@ export default function CommunityTemplate() {
   return (
     <>
       <TriggerBtnGroup arr={arr} />
-      <CreateIconBtn fn={() => setShowForm(true)} />
+      <FormOpenBtn fn={() => setShowForm(true)} />
       {showForm && <PostCreateForm setShowForm={setShowForm} />}
       <SearchForm />
       <PostList
