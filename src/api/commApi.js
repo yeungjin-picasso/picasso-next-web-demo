@@ -5,7 +5,7 @@ export const getAllCommPostsFn = async () => {
   return response.data;
 };
 
-export const getPostFn = async (id) => {
+export const getCommPostFn = async (id) => {
   const response = await mainRequest.get(`community/${id}`);
   return response.data;
 };

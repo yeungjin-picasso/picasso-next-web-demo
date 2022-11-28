@@ -13,7 +13,7 @@ const Container = styled.div`
   position: relative;
 `;
 
-export default function PageLayout({ children, title }) {
+export default function PageLayout({ children, title = "" }) {
   return (
     <Wrapper>
       <Container>

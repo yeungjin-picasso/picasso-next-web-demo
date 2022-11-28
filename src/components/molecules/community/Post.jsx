@@ -5,14 +5,11 @@ import ListWriteInfo from "@atoms/list/ListWriteInfo";
 import ListTitle from "@atoms/list/ListTitle";
 import { useRouter } from "next/router";
 
-export default function Post({
-  post: { id, writer, title, createdAt, viewCount, replyCount },
-  index,
-  isSortTopViews,
-}) {
+export default function Post({ post, index, isSortTopViews }) {
+  const { id, writer, title, createdAt, viewCount, replyCount } = post;
   const router = useRouter();
   const onClick = () => {
-    router.push(`/community/?id=${id}`);
+    router.push({ pathname: `/community/${id}` });
   };
   return (
     <ListElemBox>
