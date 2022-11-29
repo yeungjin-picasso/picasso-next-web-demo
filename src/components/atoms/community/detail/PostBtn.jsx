@@ -5,9 +5,7 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 3.5rem;
-  padding: 0.7rem;
-  height: 3.5rem;
+  padding: 0.8rem;
   border-radius: 1.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09), 0 1px 2px rgba(0, 0, 0, 0.18);
 
@@ -23,9 +21,9 @@ const Text = styled.p`
   margin-left: 0.4rem;
 `;
 
-export default function PostBtn({ iconName, btnName = "" }) {
+export default function PostBtn({ iconName, btnName = "", onClick }) {
   return (
-    <Button>
+    <Button onClick={onClick}>
       <Icon name={iconName} width="28" height="28" />
       {btnName && <Text>{btnName}</Text>}
     </Button>

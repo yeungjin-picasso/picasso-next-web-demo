@@ -4,7 +4,7 @@ const Name = styled.div`
   height: 3rem;
   line-height: 3rem;
   font-size: 1.5rem;
-  width: 8rem;
+  width: 10rem;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.dimGray};
   margin-right: 1rem;

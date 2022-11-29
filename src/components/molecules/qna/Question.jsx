@@ -40,6 +40,7 @@ export default function Question({
           {showAnswer && <QuesDetail desc={description} answer={answer} />}
         </div>
         <QuesIconBox
+          id={id}
           isWriter={userName === writer}
           isAnswered={answer.length > 0}
           setEditMode={setEditMode}

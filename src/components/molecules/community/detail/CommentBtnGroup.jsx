@@ -1,4 +1,7 @@
 import Icon from "@atoms/common/Icon";
+import { useMutation } from "@tanstack/react-query";
+import { useState } from "react";
+import { deleteCommentFn } from "src/api/commentApi";
 import styled from "styled-components";
 
 const Group = styled.div`
@@ -6,12 +9,11 @@ const Group = styled.div`
   justify-content: space-between;
 `;
 
-const IconBox = styled.div`
-  padding: 0.6rem;
+const IconBox = styled.button`
+  padding: 0.7rem;
   background-color: white;
-  margin-left: 0.5rem;
+  margin-left: 0.7rem;
   border-radius: 1.5rem;
-  cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09), 0 1px 2px rgba(0, 0, 0, 0.18);
 
   &:hover {
@@ -21,13 +23,25 @@ const IconBox = styled.div`
   }
 `;
 
-export default function CommentBtnGroup() {
+export default function CommentBtnGroup({ id }) {
+  const { mutate } = useMutation("deleteCommentFn", deleteCommentFn, {
+    onSuccess: () => {
+      // getAllCommentsFn 라는 unique key에 대한 기존 데이터를 무효화하고 다시 가져오기
+      queryClient.invalidateQuries("getAllCommentsFn");
+    },
+  });
+  const [editMode, setEditMode] = useState(false);
+
+  const deleteComment = () => {
+    mutate(id);
+  };
+
   return (
     <Group>
-      <IconBox>
+      <IconBox onClick={() => setEditMode(false)}>
         <Icon name="edit" width="28" height="28" />
       </IconBox>
-      <IconBox>
+      <IconBox onClick={deleteComment}>
         <Icon name="trash" width="28" height="28" />
       </IconBox>
     </Group>

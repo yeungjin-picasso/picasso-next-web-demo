@@ -7,7 +7,7 @@ import PostList from "@organisms/PostList";
 import { useRouter } from "next/router";
 import { useCallback, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getAllCommPostsFn } from "src/api/commApi";
+import { getAllCommPostsFn } from "src/api/communityApi";
 import { COMMUNITY_LIST } from "src/api/mock/COMMUNITTY_LIST";
 
 // 페이지 당 보여줄 게시물 수

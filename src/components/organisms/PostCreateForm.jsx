@@ -7,7 +7,7 @@ import { useMutation } from "@tanstack/react-query";
 import Modal from "@templates/Modal";
 import { useState } from "react";
 import { useRecoilValue } from "recoil";
-import { createCommPostFn } from "src/api/commApi";
+import { createCommPostFn } from "src/api/communityApi";
 import { userAtom } from "src/states";
 import styled from "styled-components";
 

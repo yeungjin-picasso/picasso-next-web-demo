@@ -1,7 +1,9 @@
 import CommentInput from "@atoms/community/detail/CommentInput";
 import CommentUser from "@atoms/community/detail/CommentUser";
+import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { useRecoilValue } from "recoil";
+import { createCommentFn } from "src/api/commentApi";
 import { userAtom } from "src/states";
 import styled from "styled-components";
 
@@ -27,6 +29,12 @@ const Button = styled.button`
 export default function CommentForm() {
   const userName = useRecoilValue(userAtom)?.nickname;
   const [comment, setComment] = useState("");
+  const { mutate } = useMutation("createCommentFn", createCommentFn, {
+    onSuccess: () => {
+      // getAllCommentsFn 라는 unique key에 대한 기존 데이터를 무효화하고 다시 가져오기
+      queryClient.invalidateQuries("getAllCommentsFn");
+    },
+  });
 
   const onChange = (e) => {
     setComment(e.target.value);
@@ -34,6 +42,7 @@ export default function CommentForm() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    mutate({ writer: userName, comment: comment });
   };
 
   return (

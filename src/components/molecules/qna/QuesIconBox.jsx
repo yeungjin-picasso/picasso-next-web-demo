@@ -15,12 +15,7 @@ const IconBox = styled.div`
   height: 32px;
 `;
 
-export default function QuesIconBox({
-  idx,
-  isWriter,
-  isAnswered,
-  setEditMode,
-}) {
+export default function QuesIconBox({ id, isWriter, isAnswered, setEditMode }) {
   const { mutate } = useMutation("deleteQnaPostFn", deleteQnaPostFn, {
     onSuccess: () => {
       // getAllQnaPostsFn 라는 unique key에 대한 기존 데이터를 무효화하고 다시 가져오기
@@ -35,7 +30,7 @@ export default function QuesIconBox({
 
   const deleteItem = async (e) => {
     e.stopPropagation();
-    mutate(idx);
+    mutate(id);
   };
 
   return (

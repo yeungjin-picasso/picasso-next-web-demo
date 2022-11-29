@@ -9992,7 +9992,7 @@ export const COMMUNITY_LIST = [
   {
     id: 1000,
     title: "Boselaphus tragocamelus",
-    writer: "Zacherie",
+    writer: "wooowo",
     content:
       "At a recent client engagement, my colleague had to create some location data for testing one of the client application. The data creation involved multiple steps like downloading some data from the net, removing some columns, transforming it as per needs using Python code. The process was a bit time-consuming. Recently when I was searching for some tools for data gathering I chanced upon a tool called Mockaroo. Mockaroo is an excellent tool for generating realistic test data. I found it really helpful and it fit my needs very well. This post is about how I could use different features of Mockaroo which I felt would be very helpful for anyone testing data intensive applications.",
     createdAt: "2022-02-21 07:41:28",

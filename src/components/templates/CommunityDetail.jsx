@@ -1,7 +1,8 @@
 import DetailPost from "@organisms/DetailPost";
 import PostComment from "@organisms/PostComment";
 import { useQuery } from "@tanstack/react-query";
-import { getCommPostFn } from "src/api/commApi";
+import { getAllCommentsFn } from "src/api/commentApi";
+import { getCommPostFn } from "src/api/communityApi";
 import { COMMENT_LIST } from "src/api/mock/COMMENT_LIST";
 import { COMMUNITY_LIST } from "src/api/mock/COMMUNITTY_LIST";
 import styled from "styled-components";
@@ -25,12 +26,15 @@ export default function CommunityDetail({ id }) {
         replyCount: "",
       };
   let comments = COMMENT_LIST.slice(0, posts.replyCount);
-  console.log(comments);
   comments.sort((a, b) => {
     return new Date(b.createdAt) - new Date(a.createdAt);
   });
-  console.log(comments);
+
   // const { data: posts } = useQuery("getCommPostFn", (id) => getCommPostFn(id));
+  // const { data: comments } = useQuery("getAllCommentsFn", (id) =>
+  //   getAllCommentsFn(id),
+  // );
+
   return (
     <Container>
       <DetailPost posts={posts} />
