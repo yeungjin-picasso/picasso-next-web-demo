@@ -5,10 +5,17 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 7rem;
+  min-width: 3.5rem;
+  padding: 0.7rem;
   height: 3.5rem;
-  background-color: ${({ theme }) => theme.colors.cultured};
-  border-radius: 1rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09), 0 1px 2px rgba(0, 0, 0, 0.18);
+
+  &:hover {
+    transform: scale(0.97);
+    box-shadow: 0 0.5px 1.5px rgba(0, 0, 0, 0.09),
+      0 0.5px 1px rgba(0, 0, 0, 0.18);
+  }
 `;
 
 const Text = styled.p`
@@ -16,11 +23,11 @@ const Text = styled.p`
   margin-left: 0.4rem;
 `;
 
-export default function PostBtn({ iconName, btnName }) {
+export default function PostBtn({ iconName, btnName = "" }) {
   return (
     <Button>
-      <Icon name={iconName} width="32" height="32" />
-      <Text>{btnName}</Text>
+      <Icon name={iconName} width="28" height="28" />
+      {btnName && <Text>{btnName}</Text>}
     </Button>
   );
 }

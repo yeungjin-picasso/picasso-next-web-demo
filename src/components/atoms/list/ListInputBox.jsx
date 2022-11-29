@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const InputBox = styled.div`
   overflow: hidden;
-  width: calc(52vw - 7.4rem);
   height: 3.6rem;
   border-radius: 2.5rem;
   background-color: white;

@@ -4,7 +4,6 @@ const Element = styled.div`
   position: relative;
   overflow-x: hidden;
   display: flex;
-  width: calc(52vw - 4rem);
   margin-bottom: 1.4rem;
   border-radius: 2rem;
   padding: 0 2rem;

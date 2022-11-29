@@ -4,6 +4,7 @@ import PostMeta from "@atoms/community/detail/PostMeta";
 import PostTitle from "@atoms/community/detail/PostTitle";
 import PostBtnGroup from "@molecules/community/detail/PostBtnGroup";
 import styled from "styled-components";
+import PostBtn from "@atoms/community/detail/PostBtn";
 
 const Post = styled.div`
   padding-bottom: 1.2rem;
@@ -16,12 +17,15 @@ export default function DetailPost({
 }) {
   return (
     <Post>
-      <PostTitle title={title} />
+      <div className="flex justify-between items-start">
+        <PostTitle title={title} />
+        <PostBtnGroup />
+      </div>
       <PostMeta writer={writer} createdAt={createdAt} />
       <PostContent content={content} />
       <div className="flex justify-between items-end">
         <AggregatedData viewCount={viewCount} replyCount={replyCount} />
-        <PostBtnGroup />
+        <PostBtn iconName="back" btnName="back" />
       </div>
     </Post>
   );

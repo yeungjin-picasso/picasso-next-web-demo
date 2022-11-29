@@ -4,16 +4,19 @@ import styled from "styled-components";
 const Group = styled.div`
   display: flex;
 
-  button:first-child {
-    margin-right: 1rem;
+  button {
+    margin-right: 0.6rem;
+  }
+  button:last-child {
+    margin-right: 0;
   }
 `;
 
 export default function PostBtnGroup() {
   return (
     <Group>
-      <PostBtn iconName="edit" btnName="Edit" style={{ marginRight: "1rem" }} />
-      <PostBtn iconName="back" btnName="Back" />
+      <PostBtn iconName="edit" />
+      <PostBtn iconName="trash" />
     </Group>
   );
 }

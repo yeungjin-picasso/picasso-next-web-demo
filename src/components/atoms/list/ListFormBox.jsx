@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Form = styled.form`
-  width: calc(52vw - 4rem);
   margin-bottom: 1.4rem;
   border-radius: 2rem;
   padding: 1.2rem 1.7rem;
