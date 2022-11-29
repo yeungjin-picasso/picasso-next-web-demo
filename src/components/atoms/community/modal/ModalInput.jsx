@@ -16,6 +16,13 @@ const Input = styled.input`
   }
 `;
 
-export default function ModalInput({ name, placeholder, onChange }) {
-  return <Input name={name} placeholder={placeholder} onChange={onChange} />;
+export default function ModalInput({ name, placeholder, onChange, value }) {
+  return (
+    <Input
+      name={name}
+      placeholder={placeholder}
+      onChange={onChange}
+      value={value}
+    />
+  );
 }

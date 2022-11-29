@@ -10,7 +10,7 @@ export const createQnaPostFn = async (data) => {
   return response.data;
 };
 
-export const updateQnaPostsFn = async ({ id, data }) => {
+export const updateQnaPostFn = async ({ id, data }) => {
   const response = await mainRequest.put(`qna/${id}`, data);
   return response.data;
 };

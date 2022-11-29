@@ -22,7 +22,9 @@ export default function DetailPost({
     <Post>
       <div className="flex justify-between items-start">
         <PostTitle title={title} />
-        {userName === writer && <PostBtnGroup id={id} />}
+        {userName === writer && (
+          <PostBtnGroup id={id} title={title} content={content} />
+        )}
       </div>
       <PostMeta writer={writer} createdAt={createdAt} />
       <PostContent content={content} />

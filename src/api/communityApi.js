@@ -15,7 +15,7 @@ export const createCommPostFn = async (data) => {
   return response.data;
 };
 
-export const updateCommPostsFn = async ({ id, data }) => {
+export const updateCommPostFn = async ({ id, data }) => {
   const response = await mainRequest.put(`community/${id}`, data);
   return response.data;
 };

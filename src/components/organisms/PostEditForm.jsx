@@ -6,8 +6,8 @@ import ModalTitle from "@atoms/community/modal/ModalTitle";
 import { useMutation } from "@tanstack/react-query";
 import Modal from "@templates/Modal";
 import { useState } from "react";
+import { updateCommPostFn } from "src/api/communityApi";
 import { useRecoilValue } from "recoil";
-import { createCommPostFn } from "src/api/communityApi";
 import { userAtom } from "src/states";
 import styled from "styled-components";
 
@@ -17,51 +17,53 @@ const Form = styled.form`
   flex-direction: column;
 `;
 
-export default function PostCreateForm({ setShowForm }) {
+export default function PostEditForm({ data, setEditMode }) {
   const userName = useRecoilValue(userAtom)?.nickname;
-  const { mutate } = useMutation("createCommPostFn", createCommPostFn, {
+  const { mutate } = useMutation("updateCommPostFn", updateCommPostFn, {
     onSuccess: () => {
       // getAllQnaPostsFn 라는 unique key에 대한 기존 데이터를 무효화하고 다시 가져오기
-      QueryClient.invalidateQuries("getAllCommPostsFn");
+      QueryClient.invalidateQuries("getCommPostFn");
     },
   });
-  const [postInfo, setPostInfo] = useState({
-    title: "",
-    content: "",
+  const [editInfo, setEditInfo] = useState({
+    title: data.title,
+    content: data.content,
     writer: userName,
   });
-  const { title, content } = postInfo;
+  const { title, content } = editInfo;
 
   const onChange = ({ target: { name, value } }) => {
-    setPostInfo({ ...postInfo, [name]: value });
+    setEditInfo({ ...editInfo, [name]: value });
   };
 
   const handleClose = () => {
-    setShowForm(false);
+    setEditMode(false);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    mutate(postInfo);
+    mutate(editInfo);
   };
 
   return (
     <Modal>
       <Form onSubmit={onSubmit}>
-        <ModalTitle title="Create Post" />
+        <ModalTitle title="Edit Post" />
         <CloseBtn onClick={handleClose} />
         <ModalInput
           name="title"
           placeholder="Caption for your post"
           onChange={onChange}
+          value={title}
         />
         <ModalTextarea
           name="content"
           placeholder="Content for your post"
           onChange={onChange}
+          value={content}
         />
         <ModalBtn
-          name="Upload"
+          name="Update"
           disabled={title.length === 0 || content.length === 0}
         />
       </Form>
