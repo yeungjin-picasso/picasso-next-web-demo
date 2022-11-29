@@ -14,9 +14,9 @@ const Container = styled.div`
 `;
 
 export default function CommunityDetail({ id }) {
-  let posts = COMMUNITY_LIST.find((v) => Number(id) === v.id);
-  posts = posts
-    ? posts
+  let post = COMMUNITY_LIST.find((v) => Number(id) === v.id);
+  post = post
+    ? post
     : {
         title: "",
         writer: "",
@@ -25,20 +25,20 @@ export default function CommunityDetail({ id }) {
         viewCount: "",
         replyCount: "",
       };
-  let comments = COMMENT_LIST.slice(0, posts.replyCount);
+  let comments = COMMENT_LIST.slice(0, post.replyCount);
   comments.sort((a, b) => {
     return new Date(b.createdAt) - new Date(a.createdAt);
   });
 
-  // const { data: posts } = useQuery("getCommPostFn", (id) => getCommPostFn(id));
+  // const { data: post } = useQuery("getCommPostFn", (id) => getCommPostFn(id));
   // const { data: comments } = useQuery("getAllCommentsFn", (id) =>
   //   getAllCommentsFn(id),
   // );
 
   return (
     <Container>
-      <DetailPost posts={posts} />
-      <PostComment comments={comments} />
+      <DetailPost post={post} />
+      <PostComment post_id={id} comments={comments} />
     </Container>
   );
 }

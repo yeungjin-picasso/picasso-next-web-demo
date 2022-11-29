@@ -15,7 +15,7 @@ const Post = styled.div`
 `;
 
 export default function DetailPost({
-  posts: { id, title, writer, content, createdAt, viewCount, replyCount },
+  post: { id, title, writer, content, createdAt, viewCount, replyCount },
 }) {
   const userName = useRecoilValue(userAtom)?.nickname;
   return (

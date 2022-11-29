@@ -26,7 +26,7 @@ const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.dimGray};
 `;
 
-export default function CommentForm() {
+export default function CommentForm({ post_id }) {
   const userName = useRecoilValue(userAtom)?.nickname;
   const [comment, setComment] = useState("");
   const { mutate } = useMutation("createCommentFn", createCommentFn, {
@@ -42,7 +42,7 @@ export default function CommentForm() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    mutate({ writer: userName, comment: comment });
+    mutate({ post_id: post_id, data: { writer: userName, comment: comment } });
   };
 
   return (

@@ -16,7 +16,7 @@ const Button = styled.button`
   }
 `;
 
-export default function EditCommentBtn({ id, editText }) {
+export default function EditCommentBtn({ id, editText, setEditMode }) {
   const { mutate } = useMutation("updateCommentFn", updateCommentFn, {
     onSuccess: () => {
       // getAllCommentsFn 라는 unique key에 대한 기존 데이터를 무효화하고 다시 가져오기
@@ -25,6 +25,7 @@ export default function EditCommentBtn({ id, editText }) {
   });
   const editComment = () => {
     mutate(id, editText);
+    setEditMode(false);
   };
 
   return (

@@ -46,7 +46,11 @@ export default function Comment({
       <div className="flex justify-between items-center pl-2">
         <CommentWriter writer={writer} />
         <div className="flex">
-          <EditCommentBtn id={id} editText={editText} />
+          <EditCommentBtn
+            id={id}
+            editText={editText}
+            setEditMode={setEditMode}
+          />
           <CancelCommentBtn
             comment={comment}
             setEditText={setEditText}
@@ -54,7 +58,12 @@ export default function Comment({
           />
         </div>
       </div>
-      <CommentEditForm editText={editText} setEditText={setEditText} />
+      <CommentEditForm
+        id={id}
+        editText={editText}
+        setEditText={setEditText}
+        setEditMode={setEditMode}
+      />
     </Container>
   );
 }

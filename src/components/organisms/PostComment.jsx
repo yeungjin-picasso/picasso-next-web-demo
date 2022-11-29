@@ -4,10 +4,10 @@ import CommentList from "./CommentList";
 
 const Container = styled.div``;
 
-export default function PostComment({ comments }) {
+export default function PostComment({ post_id, comments }) {
   return (
     <Container>
-      <CommentForm />
+      <CommentForm post_id={post_id} />
       <CommentList comments={comments} />
     </Container>
   );
