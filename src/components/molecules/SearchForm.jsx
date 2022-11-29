@@ -3,11 +3,8 @@ import ListForm from "@atoms/list/ListFormBox";
 import ListFormBtn from "@atoms/list/ListFormBtn";
 import ListInputBox from "@atoms/list/ListInputBox";
 import ListInput from "@atoms/list/ListInput";
-import { useState } from "react";
 
-export default function SearchForm() {
-  const [keywords, setKeywords] = useState("");
-
+export default function SearchForm({ keywords, setKeywords }) {
   const handleChange = (e) => {
     setKeywords(e.target.value);
   };

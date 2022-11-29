@@ -11,11 +11,15 @@ import { useRouter } from "next/router";
 
 // 페이지 당 보여줄 게시물 수
 const PAGE_PER = 12;
+const data = QNA_LIST;
 
 export default function QnaTemplate() {
   const [formSelector, setFormSelector] = useState(false);
-  // const { data } = useQuery("getAllQnaPostsFn", getAllQnaPostsFn);
-  const data = QNA_LIST;
+  const [keywords, setKeywords] = useState("");
+  const { data } = useQuery(
+    ["getAllQnaPostsFn", keywords],
+    () => getAllQnaPostsFn,
+  );
   const totalPosts = useMemo(() => data.length, [data]); // 전체 게시물 개수
   const query = useRouter().query;
   const { page } = query.page ? query : { page: 1 };
@@ -39,7 +43,9 @@ export default function QnaTemplate() {
     <>
       <TriggerBtnGroup arr={arr} />
       {!formSelector && <QuesForm />}
-      {formSelector && <SearchForm />}
+      {formSelector && (
+        <SearchForm keywords={keywords} setKeywords={setKeywords} />
+      )}
       <QnaList data={data} page={page} PAGE_PER={PAGE_PER} />
       <Pagination PAGE_PER={PAGE_PER} totalPosts={totalPosts} page={page} />
     </>

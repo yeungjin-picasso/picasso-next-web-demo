@@ -1,7 +1,8 @@
 import { mainRequest } from "src/utils/request/MainRequest";
 
-export const getAllCommPostsFn = async () => {
-  const response = await mainRequest.get("community");
+export const getAllCommPostsFn = async ({ queryKey }) => {
+  const [_, keywords] = queryKey;
+  const response = await mainRequest.get(`/api/community?search=${keywords}`);
   return response.data;
 };
 

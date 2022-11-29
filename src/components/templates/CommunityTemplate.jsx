@@ -15,11 +15,14 @@ const PAGE_PER = 12;
 const data = COMMUNITY_LIST;
 
 export default function CommunityTemplate() {
+  const [keywords, setKeywords] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [isSortTopViews, setIsSortTopViews] = useState(false);
   const query = useRouter().query;
   const { page } = query.page ? query : { page: 1 };
-  // const { data } = useQuery("getAllCommPostsFn", getAllCommPostsFn);
+  const { data } = useQuery(["getAllCommPostsFn", keywords], () =>
+    getAllCommPostsFn(keywords),
+  );
   const totalPosts = data.length; // 전체 게시물 개수
 
   const sortTopViews = useCallback(() => {
@@ -49,7 +52,7 @@ export default function CommunityTemplate() {
       <TriggerBtnGroup arr={arr} />
       <FormOpenBtn fn={() => setShowForm(true)} />
       {showForm && <PostCreateForm setShowForm={setShowForm} />}
-      <SearchForm />
+      <SearchForm setKeywords={setKeywords} />
       <PostList
         data={data}
         PAGE_PER={PAGE_PER}

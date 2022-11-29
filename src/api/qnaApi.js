@@ -1,7 +1,8 @@
 import { mainRequest } from "src/utils/request/MainRequest";
 
-export const getAllQnaPostsFn = async () => {
-  const response = await mainRequest.get("qna");
+export const getAllQnaPostsFn = async ({ queryKey }) => {
+  const [_, keywords] = queryKey;
+  const response = await mainRequest.get(`/api/qna?search=${keywords}`);
   return response.data;
 };
 
