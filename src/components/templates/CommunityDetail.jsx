@@ -1,3 +1,4 @@
+import CommentForm from "@molecules/community/detail/CommentForm";
 import DetailPost from "@organisms/DetailPost";
 import PostComment from "@organisms/PostComment";
 import { useQuery } from "@tanstack/react-query";
@@ -39,7 +40,8 @@ export default function CommunityDetail({ id }) {
   return (
     <Container>
       {post && <DetailPost post={post[0]} />}
-      {comments && <PostComment post_id={id} comments={comments} />}
+      <CommentForm post_id={id} />
+      {comments && <PostComment comments={comments} />}
     </Container>
   );
 }
