@@ -14,7 +14,6 @@ export default function PostList({ data, PAGE_PER, isSortTopViews, page }) {
     <>
       {data &&
         [...data]
-          .reverse()
           .slice(start, end)
           .map((post, i) => (
             <Post

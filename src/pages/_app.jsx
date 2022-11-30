@@ -9,6 +9,7 @@ import Sidebar from "@templates/Sidebar";
 import { Suspense } from "react";
 import ErrorBoundary from "src/components/ErrorBoundary";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import AuthWrapper from "src/components/AuthWrapper";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,37 +25,23 @@ export const queryClient = new QueryClient({
 export default function App({ Component, pageProps, canonical }) {
   const router = useRouter();
 
-  if (router.pathname !== "/") {
-    return (
-      <QueryClientProvider client={queryClient}>
-        <RecoilRoot>
-          <Suspense fallback={<div>Loading...</div>}>
-            <ErrorBoundary>
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RecoilRoot>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ErrorBoundary>
+            <AuthWrapper>
               <GlobalStyle />
               <ThemeProvider theme={theme}>
-                <Sidebar />
+                {router.pathname !== "/" && <Sidebar />}
                 <Seo canonical={canonical} />
                 <Component {...pageProps} />
               </ThemeProvider>
-            </ErrorBoundary>
-          </Suspense>
-        </RecoilRoot>
-      </QueryClientProvider>
-    );
-  }
-
-  return (
-    <RecoilRoot>
-      <ErrorBoundary>
-        <Suspense fallback={<div>Loading...</div>}>
-          <GlobalStyle />
-          <ThemeProvider theme={theme}>
-            <Seo canonical={canonical} />
-            <Component {...pageProps} />
-          </ThemeProvider>
+            </AuthWrapper>
+          </ErrorBoundary>
         </Suspense>
-      </ErrorBoundary>
-    </RecoilRoot>
+      </RecoilRoot>
+    </QueryClientProvider>
   );
 }
 
