@@ -1,5 +1,4 @@
 import CommunityDetail from "@templates/CommunityDetail";
-import CommunityTemplate from "@templates/CommunityTemplate";
 import { useRouter } from "next/router";
 import PageLayout from "src/components/PageLayout";
 import Seo from "src/components/Seo";

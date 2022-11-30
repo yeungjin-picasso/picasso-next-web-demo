@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { createCommentFn } from "src/api/commentApi";
+import { queryClient } from "src/pages/_app";
 import { userAtom } from "src/states";
 import styled from "styled-components";
 
@@ -29,10 +30,10 @@ const Button = styled.button`
 export default function CommentForm({ post_id }) {
   const userName = useRecoilValue(userAtom)?.nickname;
   const [comment, setComment] = useState("");
-  const { mutate } = useMutation("createCommentFn", createCommentFn, {
+  const { mutate } = useMutation(["createCommentFn"], createCommentFn, {
     onSuccess: () => {
       // getAllCommentsFn 라는 unique key에 대한 기존 데이터를 무효화하고 다시 가져오기
-      queryClient.invalidateQuries("getAllCommentsFn");
+      queryClient.invalidateQueries("getAllCommentsFn");
     },
   });
 
@@ -42,7 +43,7 @@ export default function CommentForm({ post_id }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    mutate({ post_id: post_id, data: { writer: userName, comment: comment } });
+    mutate(post_id, { writer: userName, comment: comment });
   };
 
   return (

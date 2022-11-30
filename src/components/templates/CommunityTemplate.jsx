@@ -20,24 +20,22 @@ export default function CommunityTemplate() {
   const [isSortTopViews, setIsSortTopViews] = useState(false);
   const query = useRouter().query;
   const { page } = query.page ? query : { page: 1 };
-  const { data } = useQuery(["getAllCommPostsFn", keywords], () =>
-    getAllCommPostsFn(keywords),
-  );
-  const totalPosts = data.length; // 전체 게시물 개수
+  const { data } = useQuery(["getAllCommPostsFn", keywords], getAllCommPostsFn);
+  const totalPosts = useMemo(() => data?.length, [data]); // 전체 게시물 개수
 
   const sortTopViews = useCallback(() => {
-    data.sort((a, b) => {
+    data?.sort((a, b) => {
       return b.viewCount - a.viewCount;
     });
     setIsSortTopViews(true);
-  }, []);
+  }, [data]);
 
   const sortRecent = useCallback(() => {
-    data.sort((a, b) => {
+    data?.sort((a, b) => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
     setIsSortTopViews(false);
-  }, []);
+  }, [data]);
 
   const arr = useMemo(
     () => [

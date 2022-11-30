@@ -1,4 +1,4 @@
-import CancelCommentBtn from "@atoms/community/detail/CancelEditBtn";
+import CancelCommentBtn from "@atoms/community/detail/CancelCommentBtn";
 import CommentContent from "@atoms/community/detail/CommentContent";
 import CommentCreatedAt from "@atoms/community/detail/CommentCreatedAt";
 import CommentEditForm from "@atoms/community/detail/CommentEditForm";

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import HeaderLink from "@atoms/home/HeaderLink";
 import { useState } from "react";
-import Icon from "@atoms/common/Icon";
 
 const Nav = styled.div`
   display: flex;
@@ -9,23 +8,23 @@ const Nav = styled.div`
   align-items: center;
 `;
 
+const Button = styled.button`
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0 2.5vw;
+`;
+
 export default function HeaderNav() {
-  const [isLogin, setIsLogin] = useState(true);
-  const elements = ["SHOWCASE", "QNA", "COMMUNITY", "LOGIN", "REGISTER"];
+  const [isLogin, setIsLogin] = useState(false);
+  const elements = ["SHOWCASE", "QNA", "COMMUNITY"];
   return (
     <Nav>
-      {!isLogin &&
-        elements.map((name) => {
-          return <HeaderLink key={name} name={name} />;
-        })}
-      {isLogin && (
-        <>
-          {elements.slice(0, 3).map((name) => {
-            return <HeaderLink key={name} name={name} />;
-          })}
-          <Icon name="user" width={30} height={30} />
-        </>
-      )}
+      {elements.map((name) => {
+        return <HeaderLink key={name} name={name} />;
+      })}
+      {/* {!isLogin && <Button onClick={}>LOGIN</Button>}
+      {isLogin && <Button onClick={}>LOGOUT</Button>} */}
     </Nav>
   );
 }

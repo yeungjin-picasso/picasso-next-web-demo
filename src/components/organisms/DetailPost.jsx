@@ -14,22 +14,29 @@ const Post = styled.div`
   border-bottom: 2px solid ${({ theme }) => theme.colors.veryLightGrey};
 `;
 
-export default function DetailPost({
-  post: { id, title, writer, content, createdAt, viewCount, replyCount },
-}) {
+export default function DetailPost({ post }) {
+  const {
+    communities_num,
+    title,
+    writer,
+    content,
+    created_at,
+    views,
+    reply_count,
+  } = post;
   const userName = useRecoilValue(userAtom)?.nickname;
   return (
     <Post>
       <div className="flex justify-between items-start">
         <PostTitle title={title} />
         {userName === writer && (
-          <PostBtnGroup id={id} title={title} content={content} />
+          <PostBtnGroup id={communities_num} title={title} content={content} />
         )}
       </div>
-      <PostMeta writer={writer} createdAt={createdAt} />
+      <PostMeta writer={writer} createdAt={created_at} />
       <PostContent content={content} />
       <div className="flex justify-between items-end">
-        <AggregatedData viewCount={viewCount} replyCount={replyCount} />
+        <AggregatedData viewCount={views} replyCount={reply_count} />
         <PostBtn iconName="back" btnName="back" />
       </div>
     </Post>

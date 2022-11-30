@@ -6,10 +6,6 @@ const Element = styled.a`
   font-size: 1.2rem;
   font-weight: bold;
   padding: 0 2.5vw;
-
-  &:last-child {
-    padding-right: 0;
-  }
 `;
 
 export default function HomeLink({ name }) {

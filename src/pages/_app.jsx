@@ -10,19 +10,18 @@ import { Suspense } from "react";
 import ErrorBoundary from "src/components/ErrorBoundary";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-export default function App({ Component, pageProps, canonical }) {
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false,
-        refetchOnmount: false,
-        refetchOnReconnect: false,
-        retry: 1,
-        staleTime: 5 * 1000,
-      },
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnmount: false,
+      refetchOnReconnect: false,
+      retry: 1,
+      staleTime: 5 * 1000,
     },
-  });
-
+  },
+});
+export default function App({ Component, pageProps, canonical }) {
   const router = useRouter();
 
   if (router.pathname !== "/") {

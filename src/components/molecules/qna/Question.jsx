@@ -10,14 +10,22 @@ import { userAtom } from "src/states";
 import { useRecoilValue } from "recoil";
 
 export default function Question({
-  qna: { id, isPrivate, question, description, writer, createdAt, answer },
+  qna: {
+    question_num,
+    isPrivate,
+    question,
+    description,
+    writer,
+    created_at,
+    answer,
+  },
 }) {
   const userName = useRecoilValue(userAtom)?.nickname;
   const [showAnswer, setShowAnswer] = useState(false);
   const [editMode, setEditMode] = useState(false);
-  const isWriter = useMemo(() => userName === writer, []);
+  const isWriter = useMemo(() => userName === writer, [userName, writer]);
   const handleShow = () => {
-    if ((!isPrivate || isWriter) && answer.length > 0) {
+    if ((!isPrivate || isWriter) && answer?.length > 0) {
       setShowAnswer(!showAnswer);
     }
   };
@@ -25,12 +33,12 @@ export default function Question({
   if (!editMode) {
     return (
       <ListElemBox onClick={handleShow}>
-        <ListId id={id} />
+        <ListId id={question_num} />
         <div className="grow mt-2 pb-7">
           <ListWriteInfo
             writer={writer}
             isWriter={isWriter}
-            createdAt={createdAt}
+            createdAt={created_at}
           />
           <ListTitle
             isPrivate={isPrivate}
@@ -40,9 +48,9 @@ export default function Question({
           {showAnswer && <QuesDetail desc={description} answer={answer} />}
         </div>
         <QuesIconBox
-          id={id}
+          id={question_num}
           isWriter={userName === writer}
-          isAnswered={answer.length > 0}
+          isAnswered={answer?.length > 0}
           setEditMode={setEditMode}
         />
       </ListElemBox>
@@ -51,10 +59,11 @@ export default function Question({
 
   return (
     <QuesEditForm
-      id={id}
+      id={question_num}
       question={question}
       desc={description}
       isPrivate={isPrivate}
+      setEditMode={setEditMode}
     />
   );
 }

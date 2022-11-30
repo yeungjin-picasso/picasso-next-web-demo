@@ -1,8 +1,10 @@
 import PostBtn from "@atoms/community/detail/PostBtn";
 import PostEditForm from "@organisms/PostEditForm";
 import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { deleteCommPostFn } from "src/api/communityApi";
+import { queryClient } from "src/pages/_app";
 import styled from "styled-components";
 
 const Group = styled.div`
@@ -18,17 +20,14 @@ const Group = styled.div`
 `;
 
 export default function PostBtnGroup({ id, title, content }) {
-  const data = { id: id, title: title, content: content };
-  const { mutate } = useMutation("deleteCommPostFn", deleteCommPostFn, {
-    onSuccess: () => {
-      // getCommPostFn 라는 unique key에 대한 기존 데이터를 무효화하고 다시 가져오기
-      queryClient.invalidateQuries("getCommPostFn");
-    },
-  });
+  const data = { id, title, content };
+  const router = useRouter();
+  const { mutate } = useMutation(["deleteCommPostFn"], deleteCommPostFn);
   const [editMode, setEditMode] = useState(false);
 
   const deletePost = () => {
     mutate(id);
+    router.push({ pathname: `/community` });
   };
 
   return (

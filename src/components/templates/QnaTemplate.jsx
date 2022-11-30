@@ -16,11 +16,8 @@ const data = QNA_LIST;
 export default function QnaTemplate() {
   const [formSelector, setFormSelector] = useState(false);
   const [keywords, setKeywords] = useState("");
-  const { data } = useQuery(
-    ["getAllQnaPostsFn", keywords],
-    () => getAllQnaPostsFn,
-  );
-  const totalPosts = useMemo(() => data.length, [data]); // 전체 게시물 개수
+  const { data } = useQuery(["getAllQnaPostsFn", keywords], getAllQnaPostsFn);
+  const totalPosts = useMemo(() => data?.length, [data]); // 전체 게시물 개수
   const query = useRouter().query;
   const { page } = query.page ? query : { page: 1 };
 

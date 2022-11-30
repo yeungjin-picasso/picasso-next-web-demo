@@ -12,17 +12,18 @@ export default function PostList({ data, PAGE_PER, isSortTopViews, page }) {
 
   return (
     <>
-      {[...data]
-        .reverse()
-        .slice(start, end)
-        .map((post, i) => (
-          <Post
-            key={post.id}
-            post={post}
-            index={i}
-            isSortTopViews={isSortTopViews}
-          />
-        ))}
+      {data &&
+        [...data]
+          .reverse()
+          .slice(start, end)
+          .map((post, i) => (
+            <Post
+              key={post.communities_num}
+              post={post}
+              index={i}
+              isSortTopViews={isSortTopViews}
+            />
+          ))}
     </>
   );
 }

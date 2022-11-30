@@ -1,5 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { updateCommentFn } from "src/api/commentApi";
+import { queryClient } from "src/pages/_app";
 import styled from "styled-components";
 
 const Textarea = styled.textarea`
@@ -29,10 +30,10 @@ export default function CommentEditForm({
   setEditText,
   setEditMode,
 }) {
-  const { mutate } = useMutation("updateCommentFn", updateCommentFn, {
+  const { mutate } = useMutation(["updateCommentFn"], updateCommentFn, {
     onSuccess: () => {
       // getAllCommentsFn 라는 unique key에 대한 기존 데이터를 무효화하고 다시 가져오기
-      queryClient.invalidateQuries("getAllCommentsFn");
+      queryClient.invalidateQueries("getAllCommentsFn");
     },
   });
 
@@ -47,7 +48,7 @@ export default function CommentEditForm({
 
   return (
     <form onSubmit={onSubmit}>
-      <Textarea onChange={onChange} value={editText} />
+      <Textarea required onChange={onChange} value={editText} />
     </form>
   );
 }

@@ -14,31 +14,32 @@ const Container = styled.div`
 `;
 
 export default function CommunityDetail({ id }) {
-  let post = COMMUNITY_LIST.find((v) => Number(id) === v.id);
-  post = post
-    ? post
-    : {
-        title: "",
-        writer: "",
-        content: "",
-        createdAt: "",
-        viewCount: "",
-        replyCount: "",
-      };
-  let comments = COMMENT_LIST.slice(0, post.replyCount);
-  comments.sort((a, b) => {
-    return new Date(b.createdAt) - new Date(a.createdAt);
-  });
+  // let post = COMMUNITY_LIST.find((v) => Number(id) === v.id);
+  // post = post
+  //   ? post
+  //   : {
+  //       title: "",
+  //       writer: "",
+  //       content: "",
+  //       createdAt: "",
+  //       viewCount: "",
+  //       replyCount: "",
+  //     };
+  // let comments = COMMENT_LIST.slice(0, post.replyCount);
+  // comments.sort((a, b) => {
+  //   return new Date(b.createdAt) - new Date(a.createdAt);
+  // });
 
-  // const { data: post } = useQuery("getCommPostFn", (id) => getCommPostFn(id));
-  // const { data: comments } = useQuery("getAllCommentsFn", (id) =>
-  //   getAllCommentsFn(id),
-  // );
+  const { data: post } = useQuery(["getCommPostFn", id], getCommPostFn);
+  const { data: comments } = useQuery(
+    ["getAllCommentsFn", id],
+    getAllCommentsFn,
+  );
 
   return (
     <Container>
-      <DetailPost post={post} />
-      <PostComment post_id={id} comments={comments} />
+      {post && <DetailPost post={post[0]} />}
+      {comments && <PostComment post_id={id} comments={comments} />}
     </Container>
   );
 }

@@ -8,6 +8,7 @@ import Modal from "@templates/Modal";
 import { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { createCommPostFn } from "src/api/communityApi";
+import { queryClient } from "src/pages/_app";
 import { userAtom } from "src/states";
 import styled from "styled-components";
 
@@ -19,10 +20,10 @@ const Form = styled.form`
 
 export default function PostCreateForm({ setShowForm }) {
   const userName = useRecoilValue(userAtom)?.nickname;
-  const { mutate } = useMutation("createCommPostFn", createCommPostFn, {
+  const { mutate } = useMutation(["createCommPostFn"], createCommPostFn, {
     onSuccess: () => {
       // getAllQnaPostsFn 라는 unique key에 대한 기존 데이터를 무효화하고 다시 가져오기
-      QueryClient.invalidateQuries("getAllCommPostsFn");
+      queryClient.invalidateQueries("getAllCommPostsFn");
     },
   });
   const [postInfo, setPostInfo] = useState({
@@ -43,6 +44,7 @@ export default function PostCreateForm({ setShowForm }) {
   const onSubmit = (e) => {
     e.preventDefault();
     mutate(postInfo);
+    setShowForm(false);
   };
 
   return (

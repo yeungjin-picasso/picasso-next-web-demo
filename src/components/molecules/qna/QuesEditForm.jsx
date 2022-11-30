@@ -6,24 +6,32 @@ import ListInputBox from "@atoms/list/ListInputBox";
 import ListInput from "@atoms/list/ListInput";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { updateQnaPostsFn } from "src/api/qnaApi";
+import { updateQnaPostFn } from "src/api/qnaApi";
+import { queryClient } from "src/pages/_app";
 
-export default function QuesEditForm({ id, question, desc, isPrivate }) {
+export default function QuesEditForm({
+  id,
+  question,
+  desc,
+  isPrivate,
+  setEditMode,
+}) {
   const [quesInfo, setQuesInfo] = useState({
     isPrivate: isPrivate,
     question: question,
     description: desc,
   });
-  const { mutate } = useMutation("updateQnaPostsFn", updateQnaPostsFn, {
+  const { mutate } = useMutation(["updateQnaPostFn"], updateQnaPostFn, {
     onSuccess: () => {
       // getAllQnaPostsFn 라는 unique key에 대한 기존 데이터를 무효화하고 다시 가져오기
-      queryClient.invalidateQuries("getAllQnaPostsFn");
+      queryClient.invalidateQueries("getAllQnaPostsFn");
     },
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    mutate({ id, quesInfo });
+    mutate(id, quesInfo);
+    setEditMode(false);
   };
 
   const handleChange = (e) => {

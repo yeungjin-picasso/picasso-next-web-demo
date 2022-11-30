@@ -10,6 +10,7 @@ import { updateCommPostFn } from "src/api/communityApi";
 import { useRecoilValue } from "recoil";
 import { userAtom } from "src/states";
 import styled from "styled-components";
+import { queryClient } from "src/pages/_app";
 
 const Form = styled.form`
   height: 100%;
@@ -19,10 +20,10 @@ const Form = styled.form`
 
 export default function PostEditForm({ data, setEditMode }) {
   const userName = useRecoilValue(userAtom)?.nickname;
-  const { mutate } = useMutation("updateCommPostFn", updateCommPostFn, {
+  const { mutate } = useMutation(["updateCommPostFn"], updateCommPostFn, {
     onSuccess: () => {
       // getAllQnaPostsFn 라는 unique key에 대한 기존 데이터를 무효화하고 다시 가져오기
-      QueryClient.invalidateQuries("getCommPostFn");
+      queryClient.invalidateQueries("getCommPostFn");
     },
   });
   const [editInfo, setEditInfo] = useState({
@@ -42,7 +43,8 @@ export default function PostEditForm({ data, setEditMode }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    mutate(editInfo);
+    mutate(data.id, editInfo);
+    setEditMode(false);
   };
 
   return (

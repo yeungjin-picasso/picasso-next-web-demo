@@ -9,10 +9,9 @@ export default function QnaList({ data, page, PAGE_PER }) {
     setStart((page - 1) * PAGE_PER);
     setEnd(page * PAGE_PER);
   }, [page]);
-
   return (
     <>
-      {data.slice(start, end).map((qna) => (
+      {data?.slice(start, end).map((qna) => (
         <Question key={qna.idx} qna={qna} />
       ))}
     </>

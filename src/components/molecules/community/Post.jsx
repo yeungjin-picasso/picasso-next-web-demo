@@ -6,19 +6,24 @@ import ListTitle from "@atoms/list/ListTitle";
 import { useRouter } from "next/router";
 
 export default function Post({ post, index, isSortTopViews }) {
-  const { id, writer, title, createdAt, viewCount, replyCount } = post;
+  const { communities_num, writer, title, created_at, views, reply_count } =
+    post;
   const router = useRouter();
   const onClick = () => {
-    router.push({ pathname: `/community/${id}` });
+    router.push({ pathname: `/community/${communities_num}` });
   };
   return (
     <ListElemBox>
-      <ListId id={id} index={index} isSortTopViews={isSortTopViews} />
+      <ListId
+        id={communities_num}
+        index={index}
+        isSortTopViews={isSortTopViews}
+      />
       <div className="grow mt-2 pb-7">
-        <ListWriteInfo writer={writer} createdAt={createdAt} />
+        <ListWriteInfo writer={writer} createdAt={created_at} />
         <ListTitle onClick={onClick} title={title} />
       </div>
-      <PostIconBox viewCount={viewCount} replyCount={replyCount} />
+      <PostIconBox viewCount={views} replyCount={reply_count} />
     </ListElemBox>
   );
 }
