@@ -25,7 +25,7 @@ export default function DetailPost({ post }) {
     views,
     reply_count,
   } = post;
-  const userName = useRecoilValue(userAtom)?.nickname;
+  const userName = useRecoilValue(userAtom)?.user_nickname;
   const router = useRouter();
   return (
     <Post>

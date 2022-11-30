@@ -20,7 +20,7 @@ export default function Question({
     answer,
   },
 }) {
-  const userName = useRecoilValue(userAtom)?.nickname;
+  const userName = useRecoilValue(userAtom)?.user_nickname;
   const [showAnswer, setShowAnswer] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const isWriter = useMemo(() => userName === writer, [userName, writer]);

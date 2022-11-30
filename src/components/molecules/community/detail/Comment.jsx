@@ -22,7 +22,7 @@ const Container = styled.div`
 export default function Comment({
   comment: { comment_num, writer, comment, created_at },
 }) {
-  const userName = useRecoilValue(userAtom)?.nickname;
+  const userName = useRecoilValue(userAtom)?.user_nickname;
   const [editMode, setEditMode] = useState(false);
   const [editText, setEditText] = useState(comment);
 
