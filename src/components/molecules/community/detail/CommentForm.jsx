@@ -43,7 +43,8 @@ export default function CommentForm({ post_id }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    mutate(post_id, { writer: userName, comment: comment });
+    const data = { writer: userName, comment: comment };
+    mutate({ post_id, data });
   };
 
   return (
