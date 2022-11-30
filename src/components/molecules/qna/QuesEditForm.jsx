@@ -30,7 +30,7 @@ export default function QuesEditForm({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    mutate(id, quesInfo);
+    mutate({ id, data: quesInfo });
     setEditMode(false);
   };
 

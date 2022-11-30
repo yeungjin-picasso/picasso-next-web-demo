@@ -43,7 +43,7 @@ export default function PostEditForm({ data, setEditMode }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    mutate(data.id, editInfo);
+    mutate({ id: data.id, data: editInfo });
     setEditMode(false);
   };
 

@@ -7,13 +7,13 @@ export const getAllCommentsFn = async ({ queryKey }) => {
   return response.data;
 };
 
-export const createCommentFn = async (post_id, data) => {
+export const createCommentFn = async ({ post_id, data }) => {
   const response = await authRequest.post(`/comment?post_id=${post_id}`, data);
   return response.data;
 };
 
-export const updateCommentFn = async (id, data) => {
-  const response = await authRequest.put(`comment/${id}`, data);
+export const updateCommentFn = async ({ id, data }) => {
+  const response = await authRequest.put(`comment/${id}`, { comment: data });
   return response.data;
 };
 

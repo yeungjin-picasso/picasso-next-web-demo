@@ -20,7 +20,7 @@ const Container = styled.div`
 `;
 
 export default function Comment({
-  comment: { id, writer, comment, createdAt },
+  comment: { comment_num, writer, comment, created_at },
 }) {
   const userName = useRecoilValue(userAtom)?.nickname;
   const [editMode, setEditMode] = useState(false);
@@ -32,9 +32,9 @@ export default function Comment({
         <CommentWriter writer={writer} />
         <CommentContent comment={comment} />
         <div className="flex justify-between items-end">
-          <CommentCreatedAt createdAt={createdAt} />
+          <CommentCreatedAt createdAt={created_at} />
           {userName === writer && (
-            <CommentBtnGroup id={id} setEditMode={setEditMode} />
+            <CommentBtnGroup id={comment_num} setEditMode={setEditMode} />
           )}
         </div>
       </Container>
@@ -47,7 +47,7 @@ export default function Comment({
         <CommentWriter writer={writer} />
         <div className="flex">
           <EditCommentBtn
-            id={id}
+            id={comment_num}
             editText={editText}
             setEditMode={setEditMode}
           />
@@ -59,7 +59,7 @@ export default function Comment({
         </div>
       </div>
       <CommentEditForm
-        id={id}
+        id={comment_num}
         editText={editText}
         setEditText={setEditText}
         setEditMode={setEditMode}

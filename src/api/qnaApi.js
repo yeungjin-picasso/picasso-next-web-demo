@@ -7,12 +7,12 @@ export const getAllQnaPostsFn = async ({ queryKey }) => {
   return response.data;
 };
 
-export const createQnaPostFn = async (data) => {
+export const createQnaPostFn = async ({ data }) => {
   const response = await authRequest.post("qna", data);
   return response.data;
 };
 
-export const updateQnaPostFn = async (id, data) => {
+export const updateQnaPostFn = async ({ id, data }) => {
   const response = await authRequest.put(`qna/${id}`, data);
   return response.data;
 };

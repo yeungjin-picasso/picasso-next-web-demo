@@ -25,7 +25,7 @@ export default function EditCommentBtn({ id, editText, setEditMode }) {
     },
   });
   const editComment = () => {
-    mutate(id, editText);
+    mutate({ id, data: editText });
     setEditMode(false);
   };
 

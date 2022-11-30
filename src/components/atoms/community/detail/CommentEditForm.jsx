@@ -42,7 +42,7 @@ export default function CommentEditForm({
   };
 
   const onSubmit = () => {
-    mutate(id, editText);
+    mutate({ id, data: editText });
     setEditMode(false);
   };
 
