@@ -7,6 +7,7 @@ import styled from "styled-components";
 import PostBtn from "@atoms/community/detail/PostBtn";
 import { userAtom } from "src/states";
 import { useRecoilValue } from "recoil";
+import { Router, useRouter } from "next/router";
 
 const Post = styled.div`
   padding-bottom: 1.2rem;
@@ -25,6 +26,7 @@ export default function DetailPost({ post }) {
     reply_count,
   } = post;
   const userName = useRecoilValue(userAtom)?.nickname;
+  const router = useRouter();
   return (
     <Post>
       <div className="flex justify-between items-start">
@@ -37,7 +39,11 @@ export default function DetailPost({ post }) {
       <PostContent content={content} />
       <div className="flex justify-between items-end">
         <AggregatedData viewCount={views} replyCount={reply_count} />
-        <PostBtn iconName="back" btnName="back" />
+        <PostBtn
+          iconName="back"
+          btnName="back"
+          onClick={() => router.push("/community")}
+        />
       </div>
     </Post>
   );
