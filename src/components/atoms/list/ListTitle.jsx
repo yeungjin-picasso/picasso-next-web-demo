@@ -2,16 +2,11 @@ import styled from "styled-components";
 
 const Title = styled.div`
   margin-top: 0.7rem;
+  padding: 0 1.2rem;
   font-size: 1.6rem;
+  height: 1.8rem;
   display: flex;
-
-  span {
-    height: 1.8rem;
-    overflow: hidden;
-    word-wrap: brek-word;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-  }
+  overflow: hidden;
 `;
 
 const Private = styled.div`
@@ -19,9 +14,12 @@ const Private = styled.div`
   margin-right: 1rem;
 `;
 
-const PostTitle = styled.a`
-  color: ${({ isPrivate, isWriter, theme }) =>
-    isPrivate && isWriter ? theme.colors.novel : "black"};
+const PostTitle = styled.div`
+  color: ${({ isNovelColor, theme }) =>
+    isNovelColor ? theme.colors.novel : "black"};
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 0.1rem;
 
   &:hover {
     font-weight: bold;
@@ -31,14 +29,18 @@ const PostTitle = styled.a`
 export default function ListTitle({
   isPrivate = false,
   isWriter = false,
+  isAdmin = false,
   title,
   onClick = null,
 }) {
   return (
     <Title>
       {isPrivate && <Private>[private]</Private>}
-      {(!isPrivate || isWriter) && (
-        <PostTitle onClick={onClick} isPrivate={isPrivate} isWriter={isWriter}>
+      {(!isPrivate || isWriter || isAdmin) && (
+        <PostTitle
+          onClick={onClick}
+          isNovelColor={isPrivate && (isWriter || isAdmin)}
+        >
           {title}
         </PostTitle>
       )}

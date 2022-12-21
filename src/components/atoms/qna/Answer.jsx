@@ -2,7 +2,7 @@ import Icon from "@atoms/common/Icon";
 import styled from "styled-components";
 
 const AnswerBox = styled.div`
-  margin-top: 1em;
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: 1fr 22fr;
 `;

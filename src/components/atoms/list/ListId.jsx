@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 const Index = styled.div`
   font-size: 1.6rem;
-  padding-right: 1rem;
-  margin-top: 1.9rem;
+  margin-top: 2.4rem;
 
   span {
     color: ${({ theme }) => theme.colors.sunsetOrange};

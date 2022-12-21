@@ -53,19 +53,19 @@ const GlobalStyles = createGlobalStyle`
     border-spacing: 0;
   }
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #e0e0e0;
+    background: #dfe6e9;
   }
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #A4978B;
   }
   /* Handle on Hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #615758;
   }
   * {
     box-sizing: border-box;

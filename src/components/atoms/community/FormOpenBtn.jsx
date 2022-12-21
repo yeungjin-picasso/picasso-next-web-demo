@@ -4,7 +4,7 @@ import styled from "styled-components";
 const IconBox = styled.button`
   border-radius: 1.5rem;
   position: absolute;
-  top: 6rem;
+  top: 5.6rem;
   right: 11rem;
   height: 3.6rem;
   width: 3.6rem;

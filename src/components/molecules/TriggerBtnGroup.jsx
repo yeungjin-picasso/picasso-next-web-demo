@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Group = styled.div`
   display: flex;
   position: absolute;
-  top: 6rem;
+  top: 5.6rem;
   right: 2rem;
 
   button {

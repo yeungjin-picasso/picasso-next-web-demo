@@ -9,7 +9,8 @@ const getUser = () => {
   return authRequest.get("user/info");
 };
 
-const needAuth = ["/community", "/qna"];
+// const needAuth = ["/community", "/qna"];
+const needAuth = [];
 
 export default function AuthWrapper({ children }) {
   const { data, isLoading, isError } = useQuery(["getUser"], getUser);

@@ -2,10 +2,10 @@ import { memo } from "react";
 import styled from "styled-components";
 
 const Button = styled.button`
-  height: 2.4rem;
+  height: 2.6rem;
   border-radius: 0 2rem 2rem 0;
   width: 8rem;
-  margin-right: 0.6rem;
+  margin-right: 0.8rem;
   font-size: 1.3rem;
   background: ${({ theme }) => theme.colors.cultured};
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09), 0 1px 2px rgba(0, 0, 0, 0.18);

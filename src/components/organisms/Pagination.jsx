@@ -11,7 +11,7 @@ const PageBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  padding: 0.6rem 0;
 `;
 
 export default function Pagination({ PAGE_PER, totalPosts, page }) {

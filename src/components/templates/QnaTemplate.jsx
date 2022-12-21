@@ -3,7 +3,6 @@ import SearchForm from "@molecules/SearchForm";
 import Pagination from "@organisms/Pagination";
 import QnaList from "@organisms/QnaList";
 import { useMemo, useState } from "react";
-import { QNA_LIST } from "src/api/mock/QNA_LIST";
 import { useQuery } from "@tanstack/react-query";
 import { getAllQnaPostsFn } from "src/api/qnaApi";
 import TriggerBtnGroup from "@molecules/TriggerBtnGroup";
@@ -11,7 +10,6 @@ import { useRouter } from "next/router";
 
 // 페이지 당 보여줄 게시물 수
 const PAGE_PER = 12;
-const data = QNA_LIST;
 
 export default function QnaTemplate() {
   const [formSelector, setFormSelector] = useState(false);

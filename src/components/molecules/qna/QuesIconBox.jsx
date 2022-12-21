@@ -4,16 +4,10 @@ import { deleteQnaPostFn } from "src/api/qnaApi";
 import { queryClient } from "src/pages/_app";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
-  position: absolute;
-  right: 2rem;
-  top: 1.6rem;
-`;
-
 const IconBox = styled.div`
   position: relative;
-  display: flex;
-  height: 32px;
+  margin-top: 2.1rem;
+  min-width: 2rem;
 `;
 
 export default function QuesIconBox({ id, isWriter, isAnswered, setEditMode }) {
@@ -35,29 +29,27 @@ export default function QuesIconBox({ id, isWriter, isAnswered, setEditMode }) {
   };
 
   return (
-    <Wrapper>
-      <IconBox>
-        {isWriter && (
-          <Icon
-            name="trash"
-            width={32}
-            height={32}
-            onClick={deleteItem}
-            style={{ marginRight: "0.9rem", cursor: "pointer" }}
-          />
-        )}
-        {isWriter && !isAnswered && (
-          <Icon
-            name="edit"
-            width={32}
-            height={32}
-            onClick={handleEditMode}
-            style={{ marginRight: "0.9rem", cursor: "pointer" }}
-          />
-        )}
-        {!isAnswered && <Icon name="incomplete" width={32} height={32} />}
-        {isAnswered && <Icon name="complete" width={32} height={32} />}
-      </IconBox>
-    </Wrapper>
+    <IconBox>
+      {isWriter && (
+        <Icon
+          name="trash"
+          width={32}
+          height={32}
+          onClick={deleteItem}
+          style={{ marginRight: "0.9rem", cursor: "pointer" }}
+        />
+      )}
+      {isWriter && !isAnswered && (
+        <Icon
+          name="edit"
+          width={32}
+          height={32}
+          onClick={handleEditMode}
+          style={{ marginRight: "0.9rem", cursor: "pointer" }}
+        />
+      )}
+      {!isAnswered && <Icon name="incomplete" width={30} height={30} />}
+      {isAnswered && <Icon name="complete" width={34} height={34} />}
+    </IconBox>
   );
 }
